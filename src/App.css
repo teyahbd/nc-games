@@ -5,3 +5,32 @@
 .justify-content-end {
   justify-content: end;
 }
+
+.reviews {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.card {
+  max-width: 60%;
+}
+
+.card-text {
+  word-wrap: break-word;
+}
+
+.card-img {
+  max-width: 30%;
+}
+
+.card-footer {
+  display: flex;
+}

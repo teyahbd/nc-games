@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://dashboard.heroku.com/apps/teyah-nc-games-app",
+  baseURL: "https://teyah-nc-games-app.herokuapp.com/",
 });
 
 export const fetchReviews = () => {
