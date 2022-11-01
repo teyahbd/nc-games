@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <Navbar>
         <Container>
-          <Navbar.Brand>NC Games</Navbar.Brand>
+          <Navbar.Brand id="navbar-brand">NC Games</Navbar.Brand>
           <Nav>
             <Nav.Link as={Link} to="/">
               Home
