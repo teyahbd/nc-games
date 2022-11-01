@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import UserWidget from "./UserWidget";
 
-const Header = () => {
+const Header = ({ allCategories }) => {
   return (
     <header>
       <Navbar>
@@ -14,7 +14,18 @@ const Header = () => {
               Home
             </Nav.Link>
             <NavDropdown title="Categories">
-              <NavDropdown.Item>Category 1</NavDropdown.Item>
+              {allCategories.map((category) => {
+                return (
+                  <NavDropdown.Item
+                    key={`${category.slug}`}
+                    as={Link}
+                    to={`${category.slug}`}
+                    className="dropdown-text"
+                  >
+                    {`${category.slug.replace(/-/g, " ")}`}
+                  </NavDropdown.Item>
+                );
+              })}
             </NavDropdown>
             <UserWidget />
           </Nav>
