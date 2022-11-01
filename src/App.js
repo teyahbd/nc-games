@@ -33,7 +33,10 @@ function App() {
             path="/:category"
             element={<CategoryView allCategories={allCategories} />}
           />
-          <Route path="/:category/:review_id" element={<SingleReview />} />
+          <Route
+            path="/:category/:review_id"
+            element={<SingleReview allCategories={allCategories} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
