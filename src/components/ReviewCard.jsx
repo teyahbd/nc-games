@@ -9,6 +9,7 @@ const ReviewCard = ({ review }) => {
           <Card.Title className="card-title">{review.title}</Card.Title>
           <Card.Text>{`Posted by ${review.owner}`}</Card.Text>
           <Card.Text className="card-body">{review.review_body}</Card.Text>
+          <Card.Text>{review.category}</Card.Text>
         </Card.Body>
       </div>
       <div className="card-footer">

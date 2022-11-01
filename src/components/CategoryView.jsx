@@ -6,14 +6,12 @@ import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 const CategoryView = ({ allCategories }) => {
-  const [currentCategory, setCurrentCategory] = useState("");
-  const [categoryReviews, setCategoryReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [categoryReviews, setCategoryReviews] = useState([]);
   const { category } = useParams();
 
   useEffect(() => {
-    setCurrentCategory(category);
-    api.fetchReviewsByCategory(currentCategory).then(({ data }) => {
+    api.fetchReviewsByCategory(category).then(({ data }) => {
       setCategoryReviews(data);
       setIsLoading(false);
     });
@@ -23,10 +21,7 @@ const CategoryView = ({ allCategories }) => {
 
   return (
     <div className="reviews">
-      <CategoryBar
-        allCategories={allCategories}
-        currentCategory={currentCategory}
-      />
+      <CategoryBar allCategories={allCategories} currentCategory={category} />
       {categoryReviews.map((review) => {
         return <ReviewCard key={review.review_id} review={review} />;
       })}
