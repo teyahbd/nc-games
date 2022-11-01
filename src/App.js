@@ -1,20 +1,20 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Test from "./Test";
-import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Header from "./components/Header";
+import ReviewsView from "./components/ReviewsView";
 
 function App() {
-  const [currentCategory, setCurrentCategory] = useState("dexterity");
-  const [currentReviews, setCurrentReviews] = useState([]);
-
   return (
-    <div className="App">
-      <Test
-        currentCategory={currentCategory}
-        setCurrentCategory={setCurrentCategory}
-        currentReviews={currentReviews}
-        setCurrentReviews={setCurrentReviews}
-      />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<ReviewsView />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
