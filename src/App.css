@@ -1,3 +1,56 @@
 .App {
   text-align: center;
 }
+
+.justify-content-end {
+  justify-content: end;
+}
+
+.reviews {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.card {
+  max-width: 60%;
+  margin: 2rem;
+  height: 200px;
+}
+
+.card-text {
+  word-wrap: break-word;
+}
+
+.card-img {
+  max-width: 30%;
+  max-height: 200px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+}
+.footer-comment {
+  margin-right: 20%;
+}
+.footer-votes {
+  margin-left: 20%;
+}
+
+.card-title {
+  text-align: left;
+}
+
+.card-body {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
