@@ -6,7 +6,7 @@ import BackButton from "../components/BackButton";
 
 const SingleReview = () => {
   const [review, setReview] = useState({});
-  const { review_id } = useParams();
+  const { review_id, category } = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -20,9 +20,14 @@ const SingleReview = () => {
   if (isLoading) return <Spinner animation="border" />;
   return (
     <div>
-      <BackButton category={review.category} />
+      <BackButton category={category} />
       <h2>{review.title}</h2>
-      <img src={`${review.review_img_url}`} height="30%" width="30%" />
+      <img
+        src={`${review.review_img_url}`}
+        height="30%"
+        width="30%"
+        alt={`${review.title}`}
+      />
       <p>{review.review_body}</p>
     </div>
   );
