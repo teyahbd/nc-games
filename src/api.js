@@ -10,5 +10,8 @@ export const fetchReviewsByCategory = (category) => {
 export const fetchReviews = () => {
   return api.get("/api/reviews");
 };
+export const fetchCategories = () => {
+  return api.get("/api/categories");
+};
 
 //add catch?

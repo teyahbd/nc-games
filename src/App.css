@@ -47,10 +47,16 @@
 
 .card-title {
   text-align: left;
+  /* overflow-wrap: break-word; */
 }
 
 .card-body {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.dropdown-text,
+.category-title {
+  text-transform: capitalize;
 }
