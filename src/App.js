@@ -8,10 +8,12 @@ import { Spinner } from "react-bootstrap";
 import Header from "./components/Header";
 import ReviewsView from "./components/ReviewsView";
 import CategoryView from "./components/CategoryView";
+import { UserContext } from "./contexts/UserContext";
 
 function App() {
   const [allCategories, setAllCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     api.fetchCategories().then(({ data: { categories } }) => {
@@ -24,16 +26,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <Header allCategories={allCategories} />
-        <Routes>
-          <Route path="/" element={<ReviewsView />} />
-          <Route
-            path="/:category"
-            element={<CategoryView allCategories={allCategories} />}
-          />
-        </Routes>
-      </div>
+      <UserContext value={(user, setUser)}>
+        <div className="App">
+          <Header allCategories={allCategories} />
+          <Routes>
+            <Route path="/" element={<ReviewsView />} />
+            <Route
+              path="/:category"
+              element={<CategoryView allCategories={allCategories} />}
+            />
+          </Routes>
+        </div>
+      </UserContext>
     </BrowserRouter>
   );
 }
