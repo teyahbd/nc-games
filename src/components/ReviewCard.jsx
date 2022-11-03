@@ -2,15 +2,16 @@ import { Card } from "react-bootstrap";
 import VoteButton from "./VoteButton";
 import { useState } from "react";
 
-const ReviewCard = ({ review, user }) => {
+const ReviewCard = ({ review, user, updatedVoteInc }) => {
   const [voteIncrement, setVoteIncrement] = useState(
-    Number(user.vote_increments[review.review_id - 1] + 1)
+    Number(updatedVoteInc.split("")[review.review_id - 1])
   );
   const [isNewSession, setIsNewSession] = useState(true);
+  const [voteMultiplier, setVoteMultiplier] = useState(1);
 
   const voteCount = isNewSession
     ? review.votes
-    : review.votes + (voteIncrement - 1);
+    : review.votes + (voteIncrement - 1) * voteMultiplier;
   return (
     <Card className="card">
       <div className="card-horizontal">
@@ -31,6 +32,9 @@ const ReviewCard = ({ review, user }) => {
           voteIncrement={voteIncrement}
           setVoteIncrement={setVoteIncrement}
           setIsNewSession={setIsNewSession}
+          updatedVoteInc={updatedVoteInc}
+          setVoteMultiplier={setVoteMultiplier}
+          voteMultiplier={voteMultiplier}
         />
         <Card.Text className="footer-votes">Votes: {voteCount}</Card.Text>
         <VoteButton
@@ -40,6 +44,9 @@ const ReviewCard = ({ review, user }) => {
           voteIncrement={voteIncrement}
           setVoteIncrement={setVoteIncrement}
           setIsNewSession={setIsNewSession}
+          updatedVoteInc={updatedVoteInc}
+          setVoteMultiplier={setVoteMultiplier}
+          voteMultiplier={voteMultiplier}
         />
         <Card.Text className="footer-comment">
           Comments: {`${review.comment_count}`}

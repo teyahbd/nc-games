@@ -7,25 +7,29 @@ const VoteButton = ({
   voteIncrement,
   setVoteIncrement,
   setIsNewSession,
+  updatedVoteInc,
+  setVoteMultiplier,
+  voteMultiplier,
 }) => {
   const buttonText = voteType === "plus" ? "Upvote" : "Downvote";
 
   let buttonStyling = "";
-  if (voteIncrement === 2 && voteType === "plus") {
+
+  if (voteIncrement >= 2 && voteType === "plus") {
     buttonStyling = "upvote";
-  } else if (voteIncrement === 0 && voteType === "minus") {
+  } else if (voteIncrement <= 0 && voteType === "minus") {
     buttonStyling = "downvote";
-    console.log("red");
   }
 
   function handleClick() {
+    console.log(voteMultiplier);
     setIsNewSession(false);
+
     function updateVote(vote, voteInc) {
+      setVoteIncrement(voteInc);
       api.updateVotes(review_id, vote).then(({ data }) => console.log(data));
 
-      setVoteIncrement(voteInc);
-
-      const newVoteIncArr = [...user.vote_increments];
+      let newVoteIncArr = updatedVoteInc.split("");
       newVoteIncArr[review_id - 1] = voteInc.toString();
 
       api
@@ -34,34 +38,28 @@ const VoteButton = ({
     }
 
     if (voteIncrement === 1 && voteType === "plus") {
-      const vote = 1;
-      const voteInc = 2;
-      updateVote(vote, voteInc);
+      setVoteMultiplier(1);
+      updateVote(1, 2);
       buttonStyling = "upvote";
     } else if (voteIncrement === 1 && voteType === "minus") {
-      const vote = -1;
-      const voteInc = 0;
-      updateVote(vote, voteInc);
+      setVoteMultiplier(1);
+      updateVote(-1, 0);
       buttonStyling = "downvote";
     } else if (voteIncrement === 2 && voteType === "plus") {
-      const vote = -1;
-      const voteInc = 1;
-      updateVote(vote, voteInc);
+      setVoteMultiplier(1);
+      updateVote(-1, 0);
       buttonStyling = "";
     } else if (voteIncrement === 0 && voteType === "minus") {
-      const vote = 1;
-      const voteInc = 1;
-      updateVote(vote, voteInc);
+      setVoteMultiplier(1);
+      updateVote(1, 1);
       buttonStyling = "";
     } else if (voteIncrement === 2 && voteType === "minus") {
-      const vote = -2;
-      const voteInc = 0;
-      updateVote(vote, voteInc);
+      setVoteMultiplier(2);
+      updateVote(-2, 0);
       buttonStyling = "downvote";
     } else if (voteIncrement === 0 && voteType === "plus") {
-      const vote = 2;
-      const voteInc = 2;
-      updateVote(vote, voteInc);
+      setVoteMultiplier(2);
+      updateVote(2, 2);
       buttonStyling = "upvote";
     }
   }
