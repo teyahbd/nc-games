@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Spinner } from "react-bootstrap";
 
 import Header from "./components/Header";
-import AllReviewsPage from "./components/AllReviewsPage";
+import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
 import { UserContext } from "./contexts/UserContext";
@@ -17,10 +17,18 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    api.fetchCategories().then(({ data: { categories } }) => {
-      setAllCategories(categories);
-      setIsLoading(false);
-    });
+    api
+      .fetchCategories()
+      .then(({ data: { categories } }) => {
+        setAllCategories(categories);
+      })
+      .then((categories) => {
+        return api.fetchUsers();
+      })
+      .then(({ data: { users } }) => {
+        setUser(users[5]);
+        setIsLoading(false);
+      });
   }, []);
 
   if (isLoading) return <Spinner animation="border" />;
@@ -28,12 +36,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header allCategories={allCategories} />
+        <Header allCategories={allCategories} user={user} />
         <Routes>
-          <Route path="/" element={<AllReviewsPage />} />
+          <Route path="/" element={<AllReviews user={user} />} />
           <Route
             path="/:category"
-            element={<CategoryView allCategories={allCategories} />}
+            element={<CategoryView allCategories={allCategories} user={user} />}
           />
           <Route
             path="/:category/:review_id"

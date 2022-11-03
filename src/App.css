@@ -69,7 +69,6 @@
 }
 
 .review-img {
-  float: left;
   margin-right: 2rem;
   margin-bottom: 5rem;
   width: 30%;
@@ -81,4 +80,29 @@
 
 .back-button {
   float: left;
+}
+
+.review-box {
+  height: 40%;
+  border: 1px solid black;
+}
+
+.comment-container {
+  margin: 2rem;
+}
+
+.comment-card {
+  display: flex;
+  text-align: left;
+  border: 1px solid black;
+}
+
+.commentor-avatar {
+  height: 2rem;
+  width: 2rem;
+  object-fit: cover;
+}
+
+.commentor {
+  color: grey;
 }

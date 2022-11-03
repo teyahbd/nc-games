@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import UserWidget from "./UserWidget";
 
-const Header = ({ allCategories }) => {
+const Header = ({ allCategories, user }) => {
   return (
     <header>
       <Navbar>
@@ -27,7 +27,7 @@ const Header = ({ allCategories }) => {
                 );
               })}
             </NavDropdown>
-            <UserWidget />
+            <UserWidget user={user} />
           </Nav>
         </Container>
       </Navbar>
