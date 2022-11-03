@@ -29,8 +29,6 @@ const SingleReview = ({ allCategories }) => {
       )}`}</p>
       <img
         src={`${review.review_img_url}`}
-        height="30%"
-        width="30%"
         alt={`${review.title}`}
         className="review-img"
       />

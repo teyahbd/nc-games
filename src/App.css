@@ -64,13 +64,15 @@
 }
 
 .review-page {
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding: 5rem;
+  padding-top: 0;
 }
 
 .review-img {
   float: left;
   margin-right: 2rem;
+  margin-bottom: 5rem;
+  width: 30%;
 }
 
 .review-text {
