@@ -9,10 +9,12 @@ import Header from "./components/Header";
 import AllReviewsPage from "./components/AllReviewsPage";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
+import { UserContext } from "./contexts/UserContext";
 
 function App() {
   const [allCategories, setAllCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     api.fetchCategories().then(({ data: { categories } }) => {

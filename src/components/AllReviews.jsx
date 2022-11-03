@@ -3,7 +3,7 @@ import { useState, useEffect, useParams } from "react";
 import * as api from "../api";
 import ReviewCard from "./ReviewCard";
 
-const AllReviewsPage = () => {
+const AllReviews = () => {
   const [allReviews, setAllReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,4 +25,4 @@ const AllReviewsPage = () => {
   );
 };
 
-export default AllReviewsPage;
+export default AllReviews;
