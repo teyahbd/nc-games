@@ -10,8 +10,10 @@ const CommentCard = ({ review_id, comment, users }) => {
         alt=""
         className="commentor-avatar"
       />
-      <p className="commentor">{`${comment.author} says...`}</p>
-      <p>{comment.body}</p>
+      <div className="comment-text">
+        <p className="commentor">{`${comment.author} says...`}</p>
+        <p className="comment-body">{comment.body}</p>
+      </div>
     </div>
   );
 };

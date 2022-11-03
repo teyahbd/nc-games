@@ -26,6 +26,7 @@ const CommentContainer = ({ review_id }) => {
   if (isLoading) return <Spinner animation="border" />;
   return (
     <div className="comment-container">
+      <h2 className="comments-header">Comments:</h2>
       {comments.map((comment) => {
         return (
           <CommentCard
