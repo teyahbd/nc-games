@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
 import VoteButton from "./VoteButton";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ReviewCard = ({ review, user, updatedVoteInc }) => {
   const [voteIncrement, setVoteIncrement] = useState(
@@ -17,7 +18,10 @@ const ReviewCard = ({ review, user, updatedVoteInc }) => {
       <div className="card-horizontal">
         <Card.Img src={`${review.review_img_url}`} className="card-img" />
         <Card.Body>
-          <Card.Title className="card-title">{review.title}</Card.Title>
+          {/* conditional link based on whether you came from home or not? */}
+          <Link to={`/${review.category}/${review.review_id}`}>
+            <Card.Title className="card-title">{review.title}</Card.Title>
+          </Link>
           <Card.Text>
             <p>{`Posted by ${review.owner}`}</p>
             <p className="card-body">{review.review_body}</p>

@@ -67,3 +67,22 @@
 .downvote {
   background-color: red;
 }
+.review-page {
+  padding: 5rem;
+  padding-top: 0;
+}
+
+.review-img {
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: 5rem;
+  width: 30%;
+}
+
+.review-text {
+  text-align: left;
+}
+
+.back-button {
+  float: left;
+}

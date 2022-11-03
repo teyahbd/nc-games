@@ -7,6 +7,7 @@ import { Spinner } from "react-bootstrap";
 
 import Header from "./components/Header";
 import AllReviews from "./components/AllReviews";
+import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
 
 function App() {
@@ -42,6 +43,10 @@ function App() {
           <Route
             path="/:category"
             element={<CategoryView allCategories={allCategories} user={user} />}
+          />
+          <Route
+            path="/:category/:review_id"
+            element={<SingleReview allCategories={allCategories} />}
           />
         </Routes>
       </div>

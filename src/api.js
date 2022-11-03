@@ -26,5 +26,8 @@ export const updateUserVoteInc = (username, vote_increments) => {
 export const updateVotes = (review_id, vote) => {
   return api.patch(`/api/reviews/${review_id}`, { inc_votes: vote });
 };
+export const fetchReviewById = (review_id) => {
+  return api.get(`/api/reviews/${review_id}`);
+};
 
 //add catch?
