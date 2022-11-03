@@ -6,7 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Spinner } from "react-bootstrap";
 
 import Header from "./components/Header";
-import ReviewsView from "./components/ReviewsView";
+import AllReviewsPage from "./components/AllReviewsPage";
+import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
 import { UserContext } from "./contexts/UserContext";
 
@@ -26,18 +27,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserContext value={(user, setUser)}>
-        <div className="App">
-          <Header allCategories={allCategories} />
-          <Routes>
-            <Route path="/" element={<ReviewsView />} />
-            <Route
-              path="/:category"
-              element={<CategoryView allCategories={allCategories} />}
-            />
-          </Routes>
-        </div>
-      </UserContext>
+      <div className="App">
+        <Header allCategories={allCategories} />
+        <Routes>
+          <Route path="/" element={<AllReviewsPage />} />
+          <Route
+            path="/:category"
+            element={<CategoryView allCategories={allCategories} />}
+          />
+          <Route
+            path="/:category/:review_id"
+            element={<SingleReview allCategories={allCategories} />}
+          />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
