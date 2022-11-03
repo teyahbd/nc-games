@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "./api";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import { Spinner } from "react-bootstrap";
 
 import Header from "./components/Header";

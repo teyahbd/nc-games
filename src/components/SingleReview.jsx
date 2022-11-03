@@ -36,7 +36,10 @@ const SingleReview = ({ allCategories }) => {
         />
         <p className="review-text">{review.review_body}</p>
       </div>
-      <CommentContainer review_id={review.review_id} />
+      <CommentContainer
+        review_id={review.review_id}
+        review_author={review.owner}
+      />
     </div>
   );
 };

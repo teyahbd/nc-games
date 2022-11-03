@@ -1,17 +1,26 @@
-const CommentCard = ({ review_id, comment, users }) => {
+const CommentCard = ({ review_id, review_author, comment, users }) => {
+  // could do op styling
   const commentor = users.filter((user) => {
     return user.username === comment.author;
   });
-  console.log(commentor);
+
+  let cardStyling = "comment-card";
+  let userName = `${comment.author}`;
+
+  if (comment.author === review_author) {
+    cardStyling = "comment-card op-comment";
+    userName = `⭐ ${comment.author}`;
+  }
+
   return (
-    <div className="comment-card">
+    <div className={`${cardStyling}`}>
       <img
         src={`${commentor[0].avatar_url}`}
         alt=""
         className="commentor-avatar"
       />
       <div className="comment-text">
-        <p className="commentor">{`${comment.author} says...`}</p>
+        <p className="commentor">{`${userName} says...`}</p>
         <p className="comment-body">{comment.body}</p>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import * as api from "../api";
 
-const CommentContainer = ({ review_id }) => {
+const CommentContainer = ({ review_id, review_author }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const [users, setUsers] = useState([]);
@@ -34,6 +34,7 @@ const CommentContainer = ({ review_id }) => {
             comment={comment}
             key={comment.comment_id}
             users={users}
+            review_author={review_author}
           />
         );
       })}
