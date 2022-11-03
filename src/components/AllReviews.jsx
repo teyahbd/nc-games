@@ -3,7 +3,7 @@ import { useState, useEffect, useParams } from "react";
 import * as api from "../api";
 import ReviewCard from "./ReviewCard";
 
-const ReviewsView = () => {
+const AllReviews = ({ user }) => {
   const [allReviews, setAllReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,10 +19,12 @@ const ReviewsView = () => {
   return (
     <div className="reviews">
       {allReviews.map((review) => {
-        return <ReviewCard key={review.review_id} review={review} />;
+        return (
+          <ReviewCard key={review.review_id} review={review} user={user} />
+        );
       })}
     </div>
   );
 };
 
-export default ReviewsView;
+export default AllReviews;

@@ -5,7 +5,7 @@ import * as api from "../api";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
-const CategoryView = ({ allCategories }) => {
+const CategoryView = ({ allCategories, user }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryReviews, setCategoryReviews] = useState([]);
   const { category } = useParams();
@@ -23,7 +23,9 @@ const CategoryView = ({ allCategories }) => {
     <div className="reviews">
       <CategoryBar allCategories={allCategories} currentCategory={category} />
       {categoryReviews.map((review) => {
-        return <ReviewCard key={review.review_id} review={review} />;
+        return (
+          <ReviewCard key={review.review_id} review={review} user={user} />
+        );
       })}
     </div>
   );

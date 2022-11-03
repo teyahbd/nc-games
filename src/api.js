@@ -14,4 +14,17 @@ export const fetchCategories = () => {
   return api.get("/api/categories");
 };
 
+export const fetchUsers = () => {
+  return api.get("/api/users");
+};
+
+export const updateUserVoteInc = (username, vote_increments) => {
+  return api.patch(`/api/users/${username}`, {
+    vote_increments: vote_increments,
+  });
+};
+export const updateVotes = (review_id, vote) => {
+  return api.patch(`/api/reviews/${review_id}`, { inc_votes: vote });
+};
+
 //add catch?
