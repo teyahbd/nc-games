@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Spinner } from "react-bootstrap";
 
 import Header from "./components/Header";
-import ReviewsView from "./components/ReviewsView";
+import AllReviewsPage from "./components/AllReviewsPage";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
 
@@ -28,7 +28,7 @@ function App() {
       <div className="App">
         <Header allCategories={allCategories} />
         <Routes>
-          <Route path="/" element={<ReviewsView />} />
+          <Route path="/" element={<AllReviewsPage />} />
           <Route
             path="/:category"
             element={<CategoryView allCategories={allCategories} />}

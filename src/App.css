@@ -62,3 +62,21 @@
 .category-title {
   text-transform: capitalize;
 }
+
+.review-page {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.review-img {
+  float: left;
+  margin-right: 2rem;
+}
+
+.review-text {
+  text-align: left;
+}
+
+.back-button {
+  float: left;
+}

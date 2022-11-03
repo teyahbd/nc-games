@@ -19,17 +19,22 @@ const SingleReview = ({ allCategories }) => {
 
   if (isLoading) return <Spinner animation="border" />;
   return (
-    <div>
+    <div className="review-page">
       <CategoryBar currentCategory={category} allCategories={allCategories} />
       <BackButton category={category} />
       <h2>{review.title}</h2>
+      <p>{`Posted by ${review.owner} on ${review.created_at.substring(
+        0,
+        10
+      )}`}</p>
       <img
         src={`${review.review_img_url}`}
         height="30%"
         width="30%"
         alt={`${review.title}`}
+        className="review-img"
       />
-      <p>{review.review_body}</p>
+      <p className="review-text">{review.review_body}</p>
     </div>
   );
 };
