@@ -1,13 +1,8 @@
 const UserWidget = ({ user }) => {
   return (
-    <div>
-      <img
-        src={`${user.avatar_url}`}
-        alt="user avatar"
-        width="30"
-        height="30"
-      />
-      <p>{user.username}</p>
+    <div id="user-widget">
+      <img src={`${user.avatar_url}`} alt="user avatar" id="user-avatar" />
+      <p id="user-username">{user.username}</p>
     </div>
   );
 };
