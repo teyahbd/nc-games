@@ -7,6 +7,7 @@ const VoteButton = ({
   review_id,
 }) => {
   const userVote = voteType === "upvote" ? 1 : -1;
+  console.log("button rerender!");
 
   function handleClick() {
     console.log("click", userVote);
