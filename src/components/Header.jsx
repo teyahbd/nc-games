@@ -26,7 +26,9 @@ const Header = ({ allCategories, user }) => {
       </div>
       <div className="box">
         <span>
-          <h1 className="header-title">NC Games</h1>
+          <Link to="/">
+            <h1 className="header-title">NC Games</h1>
+          </Link>
         </span>
       </div>
       <div className="box">
