@@ -69,9 +69,6 @@
   height: 2.5rem;
 }
 .footer-comment {
-  margin-right: 20%;
-}
-.footer-votes {
   margin-left: 20%;
 }
 
@@ -92,6 +89,13 @@
   text-transform: capitalize;
 }
 
+.upvote {
+  background-color: green;
+}
+
+.downvote {
+  background-color: red;
+}
 .review-page {
   padding: 0;
   margin: 0;
@@ -179,4 +183,8 @@
 
 #user-name {
   margin: 1rem;
+}
+
+.vote-container {
+  display: flex;
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "./api";
 import "./App.css";
@@ -10,7 +10,6 @@ import Header from "./components/Header";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
-import { UserContext } from "./contexts/UserContext";
 
 function App() {
   const [allCategories, setAllCategories] = useState([]);
@@ -18,6 +17,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
   // add react context for both above later
+
   useEffect(() => {
     api
       .fetchCategories()
@@ -28,8 +28,9 @@ function App() {
         return api.fetchUsers();
       })
       .then(({ data: { users } }) => {
+        const myUser = users.filter((user) => user.username === "jessjelly");
         setUsers(users);
-        setUser(users[5]);
+        setUser(myUser[0]);
         setIsLoading(false);
       });
   }, []);
@@ -49,7 +50,11 @@ function App() {
           <Route
             path="/:category/:review_id"
             element={
-              <SingleReview allCategories={allCategories} users={users} />
+              <SingleReview
+                allCategories={allCategories}
+                users={users}
+                user={user}
+              />
             }
           />
         </Routes>
