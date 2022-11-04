@@ -1,9 +1,8 @@
 import { Card } from "react-bootstrap";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import VoteContainer from "./VoteContainer";
 
-const ReviewCard = ({ review, user, updatedVoteInc }) => {
+const ReviewCard = ({ review, user, userVotesStr }) => {
   return (
     <Card className="card">
       <div className="card-horizontal">
@@ -21,7 +20,7 @@ const ReviewCard = ({ review, user, updatedVoteInc }) => {
         <VoteContainer
           review={review}
           user={user}
-          updatedVoteInc={updatedVoteInc}
+          userVotesStr={userVotesStr}
         />
         <Card.Text className="footer-comment">
           Comments: {`${review.comment_count}`}

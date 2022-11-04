@@ -8,21 +8,23 @@ import { useParams } from "react-router-dom";
 const CategoryView = ({ allCategories, user }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryReviews, setCategoryReviews] = useState([]);
-  const [updatedVoteInc, setUpdatedVoteInc] = useState(user.vote_increments);
+  const [userVotesStr, setUserVotesStr] = useState("");
   const { category } = useParams();
 
   useEffect(() => {
     api
       .fetchReviewsByCategory(category)
       .then(({ data }) => {
+        console.log("useeffect array rerendering!");
         setCategoryReviews(data);
-        setIsLoading(false);
       })
-      .then((data) => {
+      .then(() => {
         return api.fetchUsers();
       })
       .then(({ data: { users } }) => {
-        setUpdatedVoteInc(users[5].vote_increments);
+        // add a specific fetch user by username in backend to replace this later & make custom hook
+        console.log("fetched user vote inc!");
+        setUserVotesStr(users[5].vote_increments);
         setIsLoading(false);
       });
   }, [category]);
@@ -38,7 +40,7 @@ const CategoryView = ({ allCategories, user }) => {
             key={review.review_id}
             review={review}
             user={user}
-            updatedVoteInc={updatedVoteInc}
+            userVotesStr={userVotesStr}
           />
         );
       })}

@@ -1,40 +1,24 @@
 import VoteButton from "./VoteButton";
 import { useState } from "react";
 
-const VoteContainer = ({ review, user, updatedVoteInc }) => {
-  const [voteIncrement, setVoteIncrement] = useState(
-    Number(updatedVoteInc.split("")[review.review_id - 1])
-  );
-  const [isNewSession, setIsNewSession] = useState(true);
-  const [voteMultiplier, setVoteMultiplier] = useState(1);
+const VoteContainer = ({ review, user, userVotesStr }) => {
+  const [optimisticVoteInc, setOptimisticVoteInc] = useState(0);
+  console.log(userVotesStr, "updated");
 
-  const voteCount = isNewSession
-    ? review.votes
-    : review.votes + (voteIncrement - 1) * voteMultiplier;
   return (
     <div className="vote-container">
       <VoteButton
-        voteType="plus"
+        voteType="upvote"
+        userVotesStr={userVotesStr}
+        setOptimisticVoteInc={setOptimisticVoteInc}
         review_id={review.review_id}
-        user={user}
-        voteIncrement={voteIncrement}
-        setVoteIncrement={setVoteIncrement}
-        setIsNewSession={setIsNewSession}
-        updatedVoteInc={updatedVoteInc}
-        setVoteMultiplier={setVoteMultiplier}
-        voteMultiplier={voteMultiplier}
       />
-      <p className="footer-votes">Votes: {voteCount}</p>
+      <p className="footer-votes">Votes: {review.votes + optimisticVoteInc}</p>
       <VoteButton
-        voteType="minus"
+        voteType="downvote"
+        userVotesStr={userVotesStr}
+        setOptimisticVoteInc={setOptimisticVoteInc}
         review_id={review.review_id}
-        user={user}
-        voteIncrement={voteIncrement}
-        setVoteIncrement={setVoteIncrement}
-        setIsNewSession={setIsNewSession}
-        updatedVoteInc={updatedVoteInc}
-        setVoteMultiplier={setVoteMultiplier}
-        voteMultiplier={voteMultiplier}
       />
     </div>
   );

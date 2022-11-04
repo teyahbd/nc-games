@@ -2,71 +2,22 @@ import * as api from "../api";
 
 const VoteButton = ({
   voteType,
+  setOptimisticVoteInc,
+  userVotesStr,
   review_id,
-  user,
-  voteIncrement,
-  setVoteIncrement,
-  setIsNewSession,
-  updatedVoteInc,
-  setVoteMultiplier,
-  voteMultiplier,
 }) => {
-  const buttonText = voteType === "plus" ? "Upvote" : "Downvote";
-
-  let buttonStyling = "";
-
-  if (voteIncrement >= 2 && voteType === "plus") {
-    buttonStyling = "upvote";
-  } else if (voteIncrement <= 0 && voteType === "minus") {
-    buttonStyling = "downvote";
-  }
+  const userVote = voteType === "upvote" ? 1 : -1;
 
   function handleClick() {
-    console.log(voteMultiplier);
-    setIsNewSession(false);
+    console.log("click", userVote);
+    setOptimisticVoteInc((currentVote) => currentVote + userVote);
 
-    function updateVote(vote, voteInc) {
-      setVoteIncrement(voteInc);
-      api.updateVotes(review_id, vote).then(({ data }) => console.log(data));
-
-      let newVoteIncArr = updatedVoteInc.split("");
-      newVoteIncArr[review_id - 1] = voteInc.toString();
-
-      api
-        .updateUserVoteInc(user.username, newVoteIncArr.join(""))
-        .then(({ data }) => console.log(data));
-    }
-
-    if (voteIncrement === 1 && voteType === "plus") {
-      setVoteMultiplier(1);
-      updateVote(1, 2);
-      buttonStyling = "upvote";
-    } else if (voteIncrement === 1 && voteType === "minus") {
-      setVoteMultiplier(1);
-      updateVote(-1, 0);
-      buttonStyling = "downvote";
-    } else if (voteIncrement === 2 && voteType === "plus") {
-      setVoteMultiplier(1);
-      updateVote(-1, 0);
-      buttonStyling = "";
-    } else if (voteIncrement === 0 && voteType === "minus") {
-      setVoteMultiplier(1);
-      updateVote(1, 1);
-      buttonStyling = "";
-    } else if (voteIncrement === 2 && voteType === "minus") {
-      setVoteMultiplier(2);
-      updateVote(-2, 0);
-      buttonStyling = "downvote";
-    } else if (voteIncrement === 0 && voteType === "plus") {
-      setVoteMultiplier(2);
-      updateVote(2, 2);
-      buttonStyling = "upvote";
-    }
+    api.updateVotes(review_id, userVote).then(({ data }) => console.log(data));
   }
 
   return (
-    <button className={`vote-button ${buttonStyling}`} onClick={handleClick}>
-      {buttonText}
+    <button className={`vote-button ${voteType}`} onClick={handleClick}>
+      {voteType}
     </button>
   );
 };

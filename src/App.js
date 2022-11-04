@@ -48,7 +48,11 @@ function App() {
           <Route
             path="/:category/:review_id"
             element={
-              <SingleReview allCategories={allCategories} users={users} />
+              <SingleReview
+                allCategories={allCategories}
+                users={users}
+                user={user}
+              />
             }
           />
         </Routes>

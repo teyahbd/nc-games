@@ -7,16 +7,29 @@ import CategoryBar from "./CategoryBar";
 import CommentContainer from "./CommentContainer";
 import VoteContainer from "./VoteContainer";
 
-const SingleReview = ({ allCategories, users }) => {
+const SingleReview = ({ allCategories, users, user }) => {
   const [review, setReview] = useState({});
   const { review_id, category } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [userVotesStr, setUserVotesStr] = useState("");
 
   useEffect(() => {
-    api.fetchReviewById(review_id).then(({ data: { review } }) => {
-      setReview(review);
-      setIsLoading(false);
-    });
+    api
+      .fetchReviewById(review_id)
+      .then(({ data: { review } }) => {
+        console.log("useeffect array rerendering!");
+        setReview(review);
+        setIsLoading(false);
+      })
+      .then(() => {
+        return api.fetchUsers();
+      })
+      .then(({ data: { users } }) => {
+        // add a specific fetch user by username in backend to replace this later & make custom hook
+        console.log("fetched user vote inc!");
+        setUserVotesStr(users[5].vote_increments);
+        setIsLoading(false);
+      });
   }, []);
 
   if (isLoading) return <Spinner animation="border" />;
@@ -25,7 +38,11 @@ const SingleReview = ({ allCategories, users }) => {
       <div className="review-box">
         <CategoryBar currentCategory={category} allCategories={allCategories} />
         <BackButton category={category} />
-        <VoteContainer />
+        <VoteContainer
+          review={review}
+          user={user}
+          userVotesStr={userVotesStr}
+        />
         <h2>{review.title}</h2>
         <p>{`Posted by ${review.owner} on ${review.created_at.substring(
           0,
