@@ -14,7 +14,6 @@ const ReviewCard = ({
 
   useEffect(() => {
     const previousVote = userVotesStr.split("")[review.review_id - 1];
-    console.log(previousVote);
 
     if (previousVote === "1") {
       setButtonStyling(["", ""]);

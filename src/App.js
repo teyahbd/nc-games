@@ -28,8 +28,9 @@ function App() {
         return api.fetchUsers();
       })
       .then(({ data: { users } }) => {
+        const myUser = users.filter((user) => user.username === "jessjelly");
         setUsers(users);
-        setUser(users[5]);
+        setUser(myUser[0]);
         setIsLoading(false);
       });
   }, []);

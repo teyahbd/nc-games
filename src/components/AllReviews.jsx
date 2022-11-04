@@ -13,7 +13,6 @@ const AllReviews = ({ user }) => {
     api
       .fetchReviews()
       .then(({ data }) => {
-        console.log("useeffect array rerendering!");
         setAllReviews(data);
       })
       .then(() => {
@@ -21,9 +20,9 @@ const AllReviews = ({ user }) => {
       })
       .then(({ data: { users } }) => {
         // add a specific fetch user by username in backend to replace this later & make custom hook
-        console.log("fetched user vote inc!");
-        setUserVotesStr(users[5].vote_increments);
-        setLocalUserVotesStr(users[5].vote_increments);
+        const myUser = users.filter((user) => user.username === "jessjelly");
+        setUserVotesStr(myUser[0].vote_increments);
+        setLocalUserVotesStr(myUser[0].vote_increments);
         setIsLoading(false);
       });
   }, []);
