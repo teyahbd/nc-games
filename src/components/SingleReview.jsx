@@ -6,7 +6,7 @@ import BackButton from "../components/BackButton";
 import CategoryBar from "./CategoryBar";
 import CommentContainer from "./CommentContainer";
 
-const SingleReview = ({ allCategories, users }) => {
+const SingleReview = ({ allCategories, users, user }) => {
   const [review, setReview] = useState({});
   const { review_id, category } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -40,6 +40,7 @@ const SingleReview = ({ allCategories, users }) => {
         review_id={review.review_id}
         review_author={review.owner}
         users={users}
+        user={user}
       />
     </div>
   );

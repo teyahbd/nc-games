@@ -25,4 +25,12 @@ export const fetchCommentsByReviewId = (review_id) => {
 export const fetchUsers = () => {
   return api.get("/api/users");
 };
+
+export const addCommentByReviewId = (review_id, body, username) => {
+  return api.post(`/api/reviews/${review_id}/comments`, {
+    review_id: review_id,
+    body: body,
+    username: username,
+  });
+};
 //add catch?
