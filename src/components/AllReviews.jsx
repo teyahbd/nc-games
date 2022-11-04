@@ -7,6 +7,7 @@ const AllReviews = ({ user }) => {
   const [allReviews, setAllReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [userVotesStr, setUserVotesStr] = useState("");
+  const [localUserVotesStr, setLocalUserVotesStr] = useState("");
 
   useEffect(() => {
     api
@@ -22,6 +23,7 @@ const AllReviews = ({ user }) => {
         // add a specific fetch user by username in backend to replace this later & make custom hook
         console.log("fetched user vote inc!");
         setUserVotesStr(users[5].vote_increments);
+        setLocalUserVotesStr(users[5].vote_increments);
         setIsLoading(false);
       });
   }, []);
@@ -37,6 +39,8 @@ const AllReviews = ({ user }) => {
             review={review}
             user={user}
             userVotesStr={userVotesStr}
+            localUserVotesStr={localUserVotesStr}
+            setLocalUserVotesStr={setLocalUserVotesStr}
           />
         );
       })}

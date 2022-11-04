@@ -9,6 +9,7 @@ const CategoryView = ({ allCategories, user }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryReviews, setCategoryReviews] = useState([]);
   const [userVotesStr, setUserVotesStr] = useState("");
+  const [localUserVotesStr, setLocalUserVotesStr] = useState("");
   const { category } = useParams();
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const CategoryView = ({ allCategories, user }) => {
         // add a specific fetch user by username in backend to replace this later & make custom hook
         console.log("fetched user vote inc!");
         setUserVotesStr(users[5].vote_increments);
+        setLocalUserVotesStr(users[5].vote_increments);
         setIsLoading(false);
       });
   }, [category]);
@@ -41,6 +43,8 @@ const CategoryView = ({ allCategories, user }) => {
             review={review}
             user={user}
             userVotesStr={userVotesStr}
+            localUserVotesStr={localUserVotesStr}
+            setLocalUserVotesStr={setLocalUserVotesStr}
           />
         );
       })}

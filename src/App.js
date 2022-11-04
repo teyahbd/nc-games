@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
   // add react context for both above later
+
   useEffect(() => {
     api
       .fetchCategories()

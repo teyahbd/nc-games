@@ -13,6 +13,7 @@ const SingleReview = ({ allCategories, users, user }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [userVotesStr, setUserVotesStr] = useState("");
   const [buttonStyling, setButtonStyling] = useState(["", ""]);
+  const [localUserVotesStr, setLocalUserVotesStr] = useState("");
 
   useEffect(() => {
     const previousVote = userVotesStr.split("")[review.review_id - 1];
@@ -24,24 +25,22 @@ const SingleReview = ({ allCategories, users, user }) => {
     } else if (previousVote === "2") {
       setButtonStyling(["upvote", ""]);
     }
-    console.log("initialise colouring");
   }, []);
 
   useEffect(() => {
     api
       .fetchReviewById(review_id)
       .then(({ data: { review } }) => {
-        console.log("useeffect array rerendering!");
         setReview(review);
-        setIsLoading(false);
       })
       .then(() => {
         return api.fetchUsers();
       })
       .then(({ data: { users } }) => {
         // add a specific fetch user by username in backend to replace this later & make custom hook
-        console.log("fetched user vote inc!");
+        console.log("reset userVotesStr!");
         setUserVotesStr(users[5].vote_increments);
+        setLocalUserVotesStr(users[5].vote_increments);
         setIsLoading(false);
       });
   }, []);
@@ -54,10 +53,12 @@ const SingleReview = ({ allCategories, users, user }) => {
         <BackButton category={category} />
         <VoteContainer
           review={review}
-          user={user}
-          userVotesStr={userVotesStr}
           buttonStyling={buttonStyling}
           setButtonStyling={setButtonStyling}
+          userVotesStr={userVotesStr}
+          user={user}
+          localUserVotesStr={localUserVotesStr}
+          setLocalUserVotesStr={setLocalUserVotesStr}
         />
         <h2>{review.title}</h2>
         <p>{`Posted by ${review.owner} on ${review.created_at.substring(

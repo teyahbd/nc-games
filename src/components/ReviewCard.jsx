@@ -3,12 +3,18 @@ import { Link } from "react-router-dom";
 import VoteContainer from "./VoteContainer";
 import { useState, useEffect } from "react";
 
-const ReviewCard = ({ review, user, userVotesStr }) => {
+const ReviewCard = ({
+  review,
+  user,
+  userVotesStr,
+  localUserVotesStr,
+  setLocalUserVotesStr,
+}) => {
   const [buttonStyling, setButtonStyling] = useState(["", ""]);
-  console.log("initial colouring is updated!");
 
   useEffect(() => {
     const previousVote = userVotesStr.split("")[review.review_id - 1];
+    console.log(previousVote);
 
     if (previousVote === "1") {
       setButtonStyling(["", ""]);
@@ -17,7 +23,6 @@ const ReviewCard = ({ review, user, userVotesStr }) => {
     } else if (previousVote === "2") {
       setButtonStyling(["upvote", ""]);
     }
-    console.log("initialise colouring");
   }, []);
 
   return (
@@ -36,10 +41,12 @@ const ReviewCard = ({ review, user, userVotesStr }) => {
       <div className="card-footer">
         <VoteContainer
           review={review}
-          user={user}
-          userVotesStr={userVotesStr}
           buttonStyling={buttonStyling}
           setButtonStyling={setButtonStyling}
+          userVotesStr={userVotesStr}
+          user={user}
+          localUserVotesStr={localUserVotesStr}
+          setLocalUserVotesStr={setLocalUserVotesStr}
         />
         <Card.Text className="footer-comment">
           Comments: {`${review.comment_count}`}
