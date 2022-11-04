@@ -1,18 +1,9 @@
 import { Card } from "react-bootstrap";
-import VoteButton from "./VoteButton";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import VoteContainer from "./VoteContainer";
 
 const ReviewCard = ({ review, user, updatedVoteInc }) => {
-  const [voteIncrement, setVoteIncrement] = useState(
-    Number(updatedVoteInc.split("")[review.review_id - 1])
-  );
-  const [isNewSession, setIsNewSession] = useState(true);
-  const [voteMultiplier, setVoteMultiplier] = useState(1);
-
-  const voteCount = isNewSession
-    ? review.votes
-    : review.votes + (voteIncrement - 1) * voteMultiplier;
   return (
     <Card className="card">
       <div className="card-horizontal">
@@ -27,28 +18,10 @@ const ReviewCard = ({ review, user, updatedVoteInc }) => {
         </Card.Body>
       </div>
       <div className="card-footer">
-        <VoteButton
-          voteType="plus"
-          review_id={review.review_id}
+        <VoteContainer
+          review={review}
           user={user}
-          voteIncrement={voteIncrement}
-          setVoteIncrement={setVoteIncrement}
-          setIsNewSession={setIsNewSession}
           updatedVoteInc={updatedVoteInc}
-          setVoteMultiplier={setVoteMultiplier}
-          voteMultiplier={voteMultiplier}
-        />
-        <Card.Text className="footer-votes">Votes: {voteCount}</Card.Text>
-        <VoteButton
-          voteType="minus"
-          review_id={review.review_id}
-          user={user}
-          voteIncrement={voteIncrement}
-          setVoteIncrement={setVoteIncrement}
-          setIsNewSession={setIsNewSession}
-          updatedVoteInc={updatedVoteInc}
-          setVoteMultiplier={setVoteMultiplier}
-          voteMultiplier={voteMultiplier}
         />
         <Card.Text className="footer-comment">
           Comments: {`${review.comment_count}`}

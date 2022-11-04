@@ -5,6 +5,7 @@ import { Spinner } from "react-bootstrap";
 import BackButton from "../components/BackButton";
 import CategoryBar from "./CategoryBar";
 import CommentContainer from "./CommentContainer";
+import VoteContainer from "./VoteContainer";
 
 const SingleReview = ({ allCategories, users }) => {
   const [review, setReview] = useState({});
@@ -24,6 +25,7 @@ const SingleReview = ({ allCategories, users }) => {
       <div className="review-box">
         <CategoryBar currentCategory={category} allCategories={allCategories} />
         <BackButton category={category} />
+        <VoteContainer />
         <h2>{review.title}</h2>
         <p>{`Posted by ${review.owner} on ${review.created_at.substring(
           0,
