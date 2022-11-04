@@ -1,16 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+
 * {
   padding: 0;
   margin: 0;
+
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .App {
+  height: 100%;
   text-align: center;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='126' height='84' viewBox='0 0 126 84'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%238cf5ff' fill-opacity='0.4'%3E%3Cpath d='M126 83v1H0v-2h40V42H0v-2h40V0h2v40h40V0h2v40h40V0h2v83zm-2-1V42H84v40h40zM82 42H42v40h40V42zm-50-6a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm96 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-42 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm30-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM20 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 24a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24-42a4 4 0 1 1 0-8 4 4 0 0 1 0 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.header {
+  display: flex;
+  padding: 2rem;
+  background-color: #8cf5ffd0;
+  height: 5vw;
+}
+.box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.box:first-child > span {
+  margin-right: auto;
+}
+.box:last-child > span {
+  margin-left: auto;
+}
+.box {
+  align-items: center;
 }
 
-.justify-content-end {
-  justify-content: end;
+.header-title {
+  color: #ffffff;
+  font-family: "Fugaz One", cursive;
+  font-size: 6vw;
+  text-shadow: 3px 3px #ff69b4;
 }
-
 .reviews {
   display: flex;
   align-items: center;
@@ -68,15 +97,14 @@
   background-color: red;
 }
 .review-page {
-  padding: 5rem;
-  padding-top: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .review-img {
-  float: left;
   margin-right: 2rem;
   margin-bottom: 5rem;
-  width: 30%;
+  width: 70%;
 }
 
 .review-text {
@@ -85,4 +113,74 @@
 
 .back-button {
   float: left;
+}
+
+.review-box {
+  background-color: white;
+  border: 1px solid black;
+  margin: 4rem;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  align-items: center;
+}
+
+.comment-card {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  min-height: 4rem;
+  border-radius: 20px;
+  background-color: white;
+  width: 80%;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 12px 12px 2px 1px #8cf5ff97;
+}
+
+.comment-text {
+  padding: 0;
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.commentor-avatar {
+  margin: 0;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.commentor {
+  color: #ff69b4dd;
+}
+
+.op-comment {
+  box-shadow: 12px 12px 2px 1px #ff69b4a1;
+}
+.comments-header {
+  margin-right: 80%;
+  font-size: 2vw;
+}
+
+#user-widget {
+  display: flex;
+  align-items: center;
+}
+
+#user-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1rem;
+}
+
+#user-name {
+  margin: 1rem;
 }

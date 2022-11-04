@@ -30,4 +30,8 @@ export const fetchReviewById = (review_id) => {
   return api.get(`/api/reviews/${review_id}`);
 };
 
+export const fetchCommentsByReviewId = (review_id) => {
+  return api.get(`/api/reviews/${review_id}/comments`);
+};
+
 //add catch?
