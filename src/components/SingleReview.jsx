@@ -12,6 +12,20 @@ const SingleReview = ({ allCategories, users, user }) => {
   const { review_id, category } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [userVotesStr, setUserVotesStr] = useState("");
+  const [buttonStyling, setButtonStyling] = useState(["", ""]);
+
+  useEffect(() => {
+    const previousVote = userVotesStr.split("")[review.review_id - 1];
+
+    if (previousVote === "1") {
+      setButtonStyling(["", ""]);
+    } else if (previousVote === "0") {
+      setButtonStyling(["", "downvote"]);
+    } else if (previousVote === "2") {
+      setButtonStyling(["upvote", ""]);
+    }
+    console.log("initialise colouring");
+  }, []);
 
   useEffect(() => {
     api
@@ -42,6 +56,8 @@ const SingleReview = ({ allCategories, users, user }) => {
           review={review}
           user={user}
           userVotesStr={userVotesStr}
+          buttonStyling={buttonStyling}
+          setButtonStyling={setButtonStyling}
         />
         <h2>{review.title}</h2>
         <p>{`Posted by ${review.owner} on ${review.created_at.substring(

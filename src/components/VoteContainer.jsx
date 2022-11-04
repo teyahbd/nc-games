@@ -1,9 +1,14 @@
 import { useState } from "react";
 import * as api from "../api";
 
-const VoteContainer = ({ review, user, userVotesStr }) => {
+const VoteContainer = ({
+  review,
+  user,
+  userVotesStr,
+  buttonStyling,
+  setButtonStyling,
+}) => {
   const [optimisticVoteInc, setOptimisticVoteInc] = useState(0);
-  const [buttonStyling, setButtonStyling] = useState(["", ""]);
 
   function handleClick(userVote) {
     if (buttonStyling[0] === "" && buttonStyling[1] === "") {
