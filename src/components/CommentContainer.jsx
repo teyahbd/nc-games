@@ -3,24 +3,15 @@ import { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import * as api from "../api";
 
-const CommentContainer = ({ review_id, review_author }) => {
+const CommentContainer = ({ review_id, review_author, users }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
-  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    api
-      .fetchCommentsByReviewId(review_id)
-      .then(({ data: { comments } }) => {
-        setComments(comments);
-      })
-      .then((comments) => {
-        return api.fetchUsers();
-      })
-      .then(({ data: { users } }) => {
-        setUsers(users);
-        setIsLoading(false);
-      });
+    api.fetchCommentsByReviewId(review_id).then(({ data: { comments } }) => {
+      setComments(comments);
+      setIsLoading(false);
+    });
   }, []);
 
   if (isLoading) return <Spinner animation="border" />;

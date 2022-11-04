@@ -16,17 +16,19 @@ function App() {
   const [allCategories, setAllCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
-
+  const [users, setUsers] = useState([]);
+  // add react context for both above later
   useEffect(() => {
     api
       .fetchCategories()
       .then(({ data: { categories } }) => {
         setAllCategories(categories);
       })
-      .then((categories) => {
+      .then(() => {
         return api.fetchUsers();
       })
       .then(({ data: { users } }) => {
+        setUsers(users);
         setUser(users[5]);
         setIsLoading(false);
       });
@@ -46,7 +48,9 @@ function App() {
           />
           <Route
             path="/:category/:review_id"
-            element={<SingleReview allCategories={allCategories} />}
+            element={
+              <SingleReview allCategories={allCategories} users={users} />
+            }
           />
         </Routes>
       </div>
