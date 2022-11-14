@@ -16,11 +16,9 @@ const ReviewCard = ({ review }) => {
         </Card.Body>
       </div>
       <div className="card-footer">
+        <Card.Text className="footer-votes"> ❤️ {`${review.votes}`}</Card.Text>
         <Card.Text className="footer-comment">
-          Comments: {`${review.comment_count}`}
-        </Card.Text>
-        <Card.Text className="footer-votes">
-          Votes: {`${review.votes}`}
+          💬 {`${review.comment_count}`}
         </Card.Text>
       </div>
     </Card>

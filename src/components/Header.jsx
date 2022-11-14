@@ -8,7 +8,7 @@ const Header = ({ allCategories, user }) => {
     <div className="header">
       <div className="box">
         <span>
-          <NavDropdown title="Categories">
+          {/* <NavDropdown title="Categories">
             {allCategories.map((category) => {
               return (
                 <NavDropdown.Item
@@ -21,12 +21,13 @@ const Header = ({ allCategories, user }) => {
                 </NavDropdown.Item>
               );
             })}
-          </NavDropdown>
+          </NavDropdown> */}
+          Categories
         </span>
       </div>
       <div className="box">
         <span>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <h1 className="header-title">NC Games</h1>
           </Link>
         </span>

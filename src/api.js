@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://teyah-nc-games-app.herokuapp.com/",
+  baseURL: "https://nc-games-reviews-api.herokuapp.com/",
 });
 
 export const fetchReviewsByCategory = (category) => {
