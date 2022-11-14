@@ -4,12 +4,11 @@ import * as api from "./api";
 import "./App.css";
 /* import "bootstrap/dist/css/bootstrap.min.css"; */
 
-import { Spinner } from "react-bootstrap";
-
 import Header from "./components/Header";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
+import Loader from "./components/Loader";
 import { UserContext } from "./contexts/UserContext";
 
 function App() {
@@ -34,7 +33,12 @@ function App() {
       });
   }, []);
 
-  if (isLoading) return <Spinner animation="border" />;
+  if (isLoading)
+    return (
+      <div className="loader-box">
+        <Loader />
+      </div>
+    );
 
   return (
     <BrowserRouter>

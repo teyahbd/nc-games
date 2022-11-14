@@ -1,10 +1,9 @@
 import * as api from "../api";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
 import BackButton from "../components/BackButton";
-import CategoryBar from "./CategoryBar";
 import CommentContainer from "./CommentContainer";
+import Loader from "./Loader";
 
 const SingleReview = ({ allCategories, users }) => {
   const [review, setReview] = useState({});
@@ -18,12 +17,17 @@ const SingleReview = ({ allCategories, users }) => {
     });
   }, []);
 
-  if (isLoading) return <Spinner animation="border" />;
+  if (isLoading)
+    return (
+      <div className="loader-box">
+        <Loader />
+      </div>
+    );
   return (
     <div className="review-page">
+      <BackButton category={category} />
+      <br />
       <div className="review-box">
-        <CategoryBar currentCategory={category} allCategories={allCategories} />
-        <BackButton category={category} />
         <h2>{review.title}</h2>
         <p>{`Posted by ${review.owner} on ${review.created_at.substring(
           0,

@@ -1,7 +1,7 @@
-import { Spinner } from "react-bootstrap";
 import { useState, useEffect, useParams } from "react";
 import * as api from "../api";
 import ReviewCard from "./ReviewCard";
+import Loader from "./Loader";
 
 const AllReviews = () => {
   const [allReviews, setAllReviews] = useState([]);
@@ -14,7 +14,12 @@ const AllReviews = () => {
     });
   }, []);
 
-  if (isLoading) return <Spinner animation="border" />;
+  if (isLoading)
+    return (
+      <div className="loader-box">
+        <Loader />
+      </div>
+    );
 
   return (
     <div className="reviews">

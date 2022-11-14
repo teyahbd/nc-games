@@ -1,8 +1,8 @@
 import ReviewCard from "./ReviewCard";
 import CategoryBar from "./CategoryBar";
+import Loader from "./Loader";
 import { useEffect, useState } from "react";
 import * as api from "../api";
-import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 const CategoryView = ({ allCategories }) => {
@@ -17,7 +17,12 @@ const CategoryView = ({ allCategories }) => {
     });
   }, [category]);
 
-  if (isLoading) return <Spinner animation="border" />;
+  if (isLoading)
+    return (
+      <div className="loader-box">
+        <Loader />
+      </div>
+    );
 
   return (
     <div className="reviews">

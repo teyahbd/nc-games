@@ -78,6 +78,9 @@
   #user-avatar {
     margin: 1rem;
   }
+  .comments-header {
+    justify-content: center;
+  }
 }
 
 #user-widget-greeting {
@@ -139,9 +142,15 @@
   text-transform: capitalize;
 }
 
-.review-page {
-  padding: 0;
-  margin: 0;
+/* SINGLE REVIEW PAGE */
+
+.review-box {
+  background-color: white;
+  margin: 4rem;
+  margin-bottom: 2rem;
+  padding: 4rem;
+  border-radius: 100px;
+  border: 1px solid #8cf5ff;
 }
 
 .review-img {
@@ -155,19 +164,22 @@
 }
 
 .back-button {
-  float: left;
+  border: 0;
+  background-color: transparent;
+  color: #ff69b4;
+  font-size: large;
 }
 
-.review-box {
-  background-color: white;
-  border: 1px solid black;
-  margin: 4rem;
+.back-button:hover,
+.back-button:focus {
+  color: orange;
 }
 
 .comment-container {
   display: flex;
   flex-direction: column;
-  margin: 2rem;
+  padding: 2rem;
+  padding-bottom: 5rem;
   align-items: center;
 }
 
@@ -207,6 +219,38 @@
   box-shadow: 12px 12px 2px 1px #ff69b4a1;
 }
 .comments-header {
-  margin-right: 80%;
-  font-size: 2vw;
+  padding-left: 5rem;
+  display: flex;
+
+  font-size: 3rem;
+  font-family: "Fugaz One", cursive;
+  width: 100%;
+  color: #ff69b4;
+  text-shadow: 3px 3px #8cf5ff;
+}
+
+/* LOADER */
+
+.loader-box {
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.loader {
+  border: 16px solid #8cf5ff6c;
+  border-top: 16px solid #ff69b4;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
