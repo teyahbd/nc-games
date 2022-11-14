@@ -98,8 +98,10 @@
   justify-content: center;
 }
 .card {
-  width: 80%;
+  width: 90%;
   margin: 2rem;
+  background-color: white;
+  border: 5px solid #8cf5ff;
 }
 
 .card-horizontal {
@@ -131,12 +133,6 @@
   white-space: normal;
 }
 
-.card-body {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
 .dropdown-text,
 .category-title {
   text-transform: capitalize;
@@ -156,11 +152,12 @@
 .review-img {
   margin-right: 2rem;
   margin-bottom: 5rem;
-  width: 70%;
+  max-width: 50vw;
 }
 
 .review-text {
   text-align: left;
+  padding: 3rem;
 }
 
 .back-button {
@@ -187,12 +184,12 @@
   display: flex;
   text-align: left;
   align-items: center;
-  min-height: 4rem;
+
   border-radius: 20px;
   background-color: white;
   width: 80%;
   padding: 1rem;
-  margin: 1rem;
+  margin: 0.5rem;
   box-shadow: 12px 12px 2px 1px #8cf5ff97;
 }
 
@@ -204,8 +201,8 @@
 
 .commentor-avatar {
   margin: 0;
-  height: 4rem;
-  width: 4rem;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
 
   object-fit: cover;
