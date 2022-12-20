@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "./api";
-import "./App.css";
+import "./New.css";
 /* import "bootstrap/dist/css/bootstrap.min.css"; */
 
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
