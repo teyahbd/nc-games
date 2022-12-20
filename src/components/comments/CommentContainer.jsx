@@ -1,7 +1,7 @@
 import CommentCard from "./CommentCard";
-import Loader from "./Loader";
+import Loader from "../Loader";
 import { useState, useEffect } from "react";
-import * as api from "../api";
+import * as api from "../../api";
 
 const CommentContainer = ({ review_id, review_author, users }) => {
   const [isLoading, setIsLoading] = useState(true);

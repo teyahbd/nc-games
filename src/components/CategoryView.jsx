@@ -1,5 +1,5 @@
 import ReviewCard from "./ReviewCard";
-import CategoryBar from "./CategoryBar";
+import CategoryWidget from "./CategoryWidget";
 import Loader from "./Loader";
 import { useEffect, useState } from "react";
 import * as api from "../api";
@@ -26,7 +26,10 @@ const CategoryView = ({ allCategories }) => {
 
   return (
     <div className="reviews">
-      <CategoryBar allCategories={allCategories} currentCategory={category} />
+      <CategoryWidget
+        allCategories={allCategories}
+        currentCategory={category}
+      />
       {categoryReviews.map((review) => {
         return <ReviewCard key={review.review_id} review={review} />;
       })}

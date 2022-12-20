@@ -54,9 +54,11 @@
   justify-content: center;
   height: 2.5rem;
 }
+
 .footer-comment {
   margin-left: 20%;
 }
+
 .footer-votes {
   margin-right: 20%;
 }
@@ -70,138 +72,4 @@
 .dropdown-text,
 .category-title {
   text-transform: capitalize;
-}
-
-/* SINGLE REVIEW PAGE */
-
-.review-box {
-  background-color: white;
-  margin: 4rem;
-  margin-bottom: 2rem;
-  padding: 4rem;
-  border-radius: 100px;
-  border: 1px solid #8cf5ff;
-}
-
-.review-img {
-  margin-right: 2rem;
-  margin-bottom: 5rem;
-  max-width: 50vw;
-}
-
-.review-text {
-  text-align: left;
-  padding: 3rem;
-}
-
-.back-button {
-  border: 0;
-  background-color: transparent;
-  color: #ff69b4;
-  font-size: large;
-}
-
-.back-button:hover,
-.back-button:focus {
-  color: orange;
-}
-
-.comment-container {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  padding-bottom: 5rem;
-  align-items: center;
-}
-
-.comment-card {
-  display: flex;
-  text-align: left;
-  align-items: center;
-
-  border-radius: 20px;
-  background-color: white;
-  width: 80%;
-  padding: 1rem;
-  margin: 0.5rem;
-  box-shadow: 12px 12px 2px 1px #8cf5ff97;
-}
-
-.comment-text {
-  padding: 0;
-  margin: 0;
-  margin-left: 1rem;
-}
-
-.commentor-avatar {
-  margin: 0;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-
-  object-fit: cover;
-}
-
-.commentor {
-  color: #ff69b4dd;
-}
-
-.op-comment {
-  box-shadow: 12px 12px 2px 1px #ff69b4a1;
-}
-.comments-header {
-  padding-left: 5rem;
-  display: flex;
-
-  font-size: 3rem;
-  font-family: "Fugaz One", cursive;
-  width: 100%;
-  color: #ff69b4;
-  text-shadow: 3px 3px #8cf5ff;
-}
-
-/* LOADER */
-
-.loader-box {
-  display: flex;
-  justify-content: center;
-  margin: 3rem;
-}
-
-.loader {
-  border: 16px solid #8cf5ff6c;
-  border-top: 16px solid #ff69b4;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* MOBILE STYLING */
-
-@media only screen and (max-width: 700px) {
-  #user-widget-text {
-    display: none;
-  }
-  #user-avatar {
-    margin: 1rem;
-  }
-  .comments-header {
-    justify-content: center;
-  }
-  .web-only {
-    display: none;
-  }
-  .mobile-only {
-    display: inline;
-  }
 }

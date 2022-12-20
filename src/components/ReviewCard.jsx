@@ -5,12 +5,15 @@ const ReviewCard = ({ review }) => {
     <div className="card">
       <div className="card-horizontal">
         <img src={`${review.review_img_url}`} className="card-img" />
-        <div>
+        <div className="card-content">
           {/* conditional link based on whether you came from home or not? */}
-          <Link to={`/${review.category}/${review.review_id}`}>
-            <h3 className="card-title">{review.title}</h3>
+          <Link
+            to={`/${review.category}/${review.review_id}`}
+            className="card-title"
+          >
+            <h3>{review.title}</h3>
           </Link>
-          <p>{`Posted by ${review.owner}`}</p>
+          <p className="card-author">{`Posted by ${review.owner}`}</p>
           <p className="card-body">{review.review_body}</p>
         </div>
       </div>

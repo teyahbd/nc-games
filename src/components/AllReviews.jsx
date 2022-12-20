@@ -22,7 +22,7 @@ const AllReviews = () => {
     );
 
   return (
-    <div className="reviews">
+    <div>
       {allReviews.map((review) => {
         return <ReviewCard key={review.review_id} review={review} />;
       })}

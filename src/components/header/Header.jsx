@@ -5,7 +5,7 @@ import UserWidget from "./UserWidget";
 
 const Header = ({ allCategories, user }) => {
   return (
-    <div className="header">
+    <header>
       <div className="box">
         <span>
           <CategoryDropdown allCategories={allCategories} />
@@ -31,7 +31,7 @@ const Header = ({ allCategories, user }) => {
           <UserWidget user={user} />
         </span>
       </div>
-    </div>
+    </header>
   );
 };
 
