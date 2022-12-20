@@ -3,11 +3,11 @@ const UserWidget = ({ user }) => {
     <div id="user-widget">
       <img src={`${user.avatar_url}`} alt="user avatar" id="user-avatar" />
       <div id="user-widget-text" className="web-only">
-        <p className="web-only">Hello</p>
+        <p className="web-only">{`${user.name}`}</p>
         <p
           id="user-widget-username"
           className="web-only"
-        >{`${user.username}!`}</p>
+        >{`${user.username}`}</p>
       </div>
     </div>
   );

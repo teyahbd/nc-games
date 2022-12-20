@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import CategoryDropdown from "./CategoryDropdown";
 import UserWidget from "./UserWidget";
 
 const Header = ({ allCategories, user }) => {
@@ -7,21 +8,7 @@ const Header = ({ allCategories, user }) => {
     <div className="header">
       <div className="box">
         <span>
-          {/* <NavDropdown title="Categories">
-            {allCategories.map((category) => {
-              return (
-                <NavDropdown.Item
-                  key={`${category.slug}`}
-                  as={Link}
-                  to={`${category.slug}`}
-                  className="dropdown-text"
-                >
-                  {`${category.slug.replace(/-/g, " ")}`}
-                </NavDropdown.Item>
-              );
-            })}
-          </NavDropdown> */}
-          CATEGORIES
+          <CategoryDropdown allCategories={allCategories} />
         </span>
       </div>
       <div className="box">
