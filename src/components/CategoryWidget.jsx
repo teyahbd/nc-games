@@ -6,6 +6,7 @@ const CategoryWidget = ({ allCategories, currentCategory }) => {
   return (
     <div id="category-widget">
       <div id="category-text-container">
+        <p id="category-is">CATEGORY IS...</p>
         <h2>{`${categoryData[0].slug.replace(/-/g, " ")}`}</h2>
         <p className="web-only">{`${categoryData[0].description}`}</p>
       </div>

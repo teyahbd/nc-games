@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom";
 
-import CategoryDropdown from "./CategoryDropdown";
 import UserWidget from "./UserWidget";
 
-const Header = ({ allCategories, user }) => {
+const Header = ({ user }) => {
+  let closed = true;
+  function showDropdown() {}
+
   return (
     <header>
       <div className="box">
         <span>
-          <CategoryDropdown allCategories={allCategories} />
+          <button id="category-button" onClick={showDropdown()}>
+            <h3>CATEGORIES</h3>
+            <i className="down-arrow"></i>
+          </button>
         </span>
       </div>
       <div className="box">
         <span>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/home" style={{ textDecoration: "none" }}>
             <h1 id="web-header" className="header-title">
               Board Game Reviews
             </h1>

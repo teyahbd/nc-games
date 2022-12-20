@@ -14,7 +14,7 @@ const ReviewCard = ({ review }) => {
             <h3>{review.title}</h3>
           </Link>
           <p className="card-author">{`Posted by ${review.owner}`}</p>
-          <p className="card-body">{review.review_body}</p>
+          {/* <p className="card-body">{review.review_body}</p> */}
         </div>
       </div>
       <div className="card-footer">

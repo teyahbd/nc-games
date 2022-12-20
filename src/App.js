@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "./api";
-import "./New.css";
+import "./App.css";
 /* import "bootstrap/dist/css/bootstrap.min.css"; */
 
 import Header from "./components/header/Header";
@@ -9,6 +9,7 @@ import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
 import Loader from "./components/Loader";
+import CategorySidebar from "./components/CategorySidebar.jsx";
 import { UserContext } from "./contexts/UserContext";
 
 function App() {
@@ -43,20 +44,25 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header allCategories={allCategories} user={user} />
-        <Routes>
-          <Route path="/" element={<AllReviews user={user} />} />
-          <Route
-            path="/:category"
-            element={<CategoryView allCategories={allCategories} user={user} />}
-          />
-          <Route
-            path="/:category/:review_id"
-            element={
-              <SingleReview allCategories={allCategories} users={users} />
-            }
-          />
-        </Routes>
+        <Header user={user} />
+        <div className="page">
+          <CategorySidebar allCategories={allCategories} />
+          <Routes>
+            <Route path="/home" element={<AllReviews user={user} />} />
+            <Route
+              path="/:category"
+              element={
+                <CategoryView allCategories={allCategories} user={user} />
+              }
+            />
+            <Route
+              path="/:category/:review_id"
+              element={
+                <SingleReview allCategories={allCategories} users={users} />
+              }
+            />
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );
