@@ -11,8 +11,8 @@ const Header = ({ user }) => {
       <div className="box">
         <span>
           <button id="category-button" onClick={showDropdown()}>
-            <h3>CATEGORIES</h3>
-            <i className="down-arrow"></i>
+            {/* <h3>CATEGORIES</h3>
+            <i className="down-arrow"></i> */}
           </button>
         </span>
       </div>
