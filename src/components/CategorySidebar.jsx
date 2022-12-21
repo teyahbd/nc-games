@@ -42,7 +42,7 @@ const CategorySidebar = (allCategories) => {
   return (
     <div id="category-sidebar">
       <h2>CATEGORIES</h2>
-      <Link to={"/home"} className="category-link">
+      <Link to={"/"} className="category-link">
         All Reviews
       </Link>
       {checkCategories.map((category) => {

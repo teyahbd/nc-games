@@ -18,7 +18,7 @@ const Header = ({ user }) => {
       </div>
       <div className="box">
         <span>
-          <Link to="/home" style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <h1 id="web-header" className="header-title">
               Board Game Reviews
             </h1>

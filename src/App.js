@@ -48,7 +48,7 @@ function App() {
         <div className="page">
           <CategorySidebar allCategories={allCategories} />
           <Routes>
-            <Route path="/home" element={<AllReviews user={user} />} />
+            <Route path="/" element={<AllReviews user={user} />} />
             <Route
               path="/:category"
               element={
