@@ -25,7 +25,7 @@ const CommentContainer = ({ review_id, review_author, users }) => {
     <div className="comment-container">
       <h2 className="comments-header">What do you think?</h2>
       {comments.length === 0 ? (
-        <h2>No comments yet... Why not be the first?</h2>
+        <h2 id="no-comments-text">No comments yet... Why not be the first?</h2>
       ) : (
         comments.map((comment) => {
           return (

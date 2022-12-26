@@ -269,15 +269,6 @@ header {
   flex-direction: column;
   align-items: flex-start;
   margin: 3rem;
-  width: 100%;
-}
-
-.reviews {
-  width: 100%;
-}
-
-.review-page-container {
-  width: 100%;
 }
 
 .review-box {
@@ -285,7 +276,7 @@ header {
   flex-direction: column;
   background-color: white;
   padding: 2rem;
-  box-shadow: 10px 10px 2px 1px #ff69b4;
+  box-shadow: 10px 10px 2px 1px #8cf5ff;
 }
 
 .review-container {
@@ -294,19 +285,36 @@ header {
   text-align: left;
 }
 
-.review > h2 {
-  color: orange;
-  font-family: "Fugaz One", cursive;
-  font-size: 2rem;
+.review-container > p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 1rem;
 }
 
-.review > h3 {
+.review-header > h2 {
   color: orange;
+  font-family: "Fugaz One", cursive;
+  font-size: 2.5rem;
+  text-align: right;
+}
+
+.review-box > h3 {
+  color: #ff69b4;
   font-style: italic;
+  text-align: right;
+  padding: 0.5rem;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .review-container > img {
-  width: 30%;
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
   padding: 1rem;
 }
 /* 
@@ -315,21 +323,22 @@ header {
 }
  */
 .back-button {
-  border: 1px solid #ff69b4;
-  padding: 0.2rem;
-  background-color: transparent;
-  color: #ff69b4;
+  background-color: orange;
+  box-shadow: 12px 12px 2px 1px white;
+  padding: 0.8rem;
+  border: none;
+  color: white;
   font-size: 1.2rem;
   cursor: pointer;
   transition-duration: 0.3s;
-  margin: 2rem;
-  margin-top: 0;
+  white-space: nowrap;
+  width: fit-content;
+  margin-right: 3rem;
 }
 
 .back-button:hover,
 .back-button:focus {
-  color: orange;
-  border: 1px solid orange;
+  color: #ff69b4;
 }
 
 /* COMMENTS STYLING */
@@ -339,6 +348,7 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding-top: 2rem;
 }
 
 .comment-card {
@@ -348,8 +358,8 @@ header {
   border-radius: 20px;
   background-color: white;
   width: 80%;
-  padding: 1rem;
-  margin: 0.5rem;
+  padding: 1.2rem;
+  margin: 0.8rem;
   box-shadow: 12px 12px 2px 1px #8cf5ff97;
 }
 
@@ -374,9 +384,17 @@ header {
 }
 
 .comments-header {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 200;
   font-family: "Fugaz One", cursive;
   color: #ff69b4;
+}
+
+#no-comments-text {
+  color: #ff69b4;
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
 }
 
 /* REVIEW CARD STYLING */
@@ -454,7 +472,8 @@ header {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   font-weight: bold;
-  color: orange;
+  color: #ff69b4;
+  font-size: 1.2rem;
 }
 
 /* LOADER */

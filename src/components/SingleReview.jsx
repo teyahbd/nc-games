@@ -38,28 +38,26 @@ const SingleReview = ({ allCategories, user, users }) => {
       <div className="main-page">
         <Sidebar allCategories={allCategories} />
         <main className="review-page">
-          <BackButton category={category} />
-          <div className="review-page-container">
-            <div className="review-box">
-              <div className="review">
-                <h2>{review.title}</h2>
-                <h3>{`Posted by ${review.owner} on ${postedDate[0]}/${postedDate[1]}/${postedDate[2]}`}</h3>
-                <div className="review-container">
-                  <img
-                    src={`${review.review_img_url}`}
-                    alt={`${review.title}`}
-                    className="review-img"
-                  />
-                  <p className="review-text">{review.review_body}</p>
-                </div>
-              </div>
-              <CommentContainer
-                review_id={review.review_id}
-                review_author={review.owner}
-                users={users}
+          <div className="review-box">
+            <div className="review-header">
+              <BackButton category={category} />
+              <h2>{review.title}</h2>
+            </div>
+            <h3>{`Posted by ${review.owner} on ${postedDate[0]}/${postedDate[1]}/${postedDate[2]}`}</h3>
+            <div className="review-container">
+              <img
+                src={`${review.review_img_url}`}
+                alt={`${review.title}`}
+                className="review-img"
               />
+              <p className="review-text">{review.review_body}</p>
             </div>
           </div>
+          <CommentContainer
+            review_id={review.review_id}
+            review_author={review.owner}
+            users={users}
+          />
         </main>
       </div>
     </div>
