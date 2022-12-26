@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Sidebar = (allCategories, isMenuOpen) => {
-  console.log(allCategories);
+const Sidebar = (allCategories) => {
   const checkCategories = [
     {
       slug: "strategy",
@@ -40,15 +39,12 @@ const Sidebar = (allCategories, isMenuOpen) => {
     },
   ];
 
-  if (isMenuOpen === false) {
-    return <div></div>;
-  }
   return (
     <>
       <div id="sidebar" className="web-only">
         <h2>CATEGORIES</h2>
         <Link to={"/"} className="category-link">
-          all reviews
+          all
         </Link>
         {checkCategories.map((category) => {
           return (
