@@ -264,6 +264,10 @@ header {
 
 /* SINGLE REVIEW STYLING */
 
+.reviews {
+  width: 100%;
+}
+
 .review-page {
   display: flex;
   flex-direction: column;
@@ -422,7 +426,7 @@ header {
 
 .card-img {
   height: 100px;
-  min-width: 100px;
+  width: 100px;
   object-fit: cover;
   box-shadow: 12px 12px 2px 1px #ff69b4a1;
 }
