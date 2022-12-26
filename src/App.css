@@ -167,6 +167,18 @@ header {
   color: #ff69b4;
 }
 
+.hamburger-menu {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition-duration: 0.2s;
+}
+
+#mobile-nav-button {
+  padding: 1rem;
+}
+
 /* CATEGORY WIDGET */
 
 #category-widget {

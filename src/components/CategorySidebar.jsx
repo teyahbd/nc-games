@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const CategorySidebar = (allCategories) => {
+const CategorySidebar = (allCategories, isMenuOpen) => {
   console.log(allCategories);
   const checkCategories = [
     {
@@ -39,22 +39,27 @@ const CategorySidebar = (allCategories) => {
         "Games where players construct unique points-gaining engines main element of the gameplay",
     },
   ];
+  if (isMenuOpen === false) {
+    return <div></div>;
+  }
   return (
-    <div id="category-sidebar">
-      <h2>CATEGORIES</h2>
-      <Link to={"/"} className="category-link">
-        All Reviews
-      </Link>
-      {checkCategories.map((category) => {
-        return (
-          <Link
-            key={`${category.slug}`}
-            to={`${category.slug}`}
-            className="category-link"
-          >{`${category.slug.replace(/-/g, " ")}`}</Link>
-        );
-      })}
-    </div>
+    <>
+      <div id="category-sidebar" className="web-only">
+        <h2>CATEGORIES</h2>
+        <Link to={"/"} className="category-link">
+          all reviews
+        </Link>
+        {checkCategories.map((category) => {
+          return (
+            <Link
+              key={`${category.slug}`}
+              to={`${category.slug}`}
+              className="category-link"
+            >{`${category.slug.replace(/-/g, " ")}`}</Link>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

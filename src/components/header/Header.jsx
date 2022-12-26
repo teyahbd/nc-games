@@ -2,18 +2,20 @@ import { Link } from "react-router-dom";
 
 import UserWidget from "./UserWidget";
 
-const Header = ({ user }) => {
-  let closed = true;
-  function showDropdown() {}
+const Header = ({ user, setIsMenuOpen, isMenuOpen }) => {
+  function openMenu() {
+    setIsMenuOpen(!isMenuOpen);
+  }
 
   return (
     <header>
       <div className="box">
         <span>
-          <button id="category-button" onClick={showDropdown()}>
-            {/* <h3>CATEGORIES</h3>
-            <i className="down-arrow"></i> */}
-          </button>
+          <a id="mobile-nav-button" onClick={openMenu} className="mobile-only">
+            <div class="hamburger-menu"></div>
+            <div class="hamburger-menu"></div>
+            <div class="hamburger-menu"></div>
+          </a>
         </span>
       </div>
       <div className="box">
