@@ -17,7 +17,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
   // add react context for both above later
   useEffect(() => {
     api
@@ -42,46 +41,12 @@ function App() {
       </div>
     );
 
-  if (isMenuOpen)
-    return (
-      <BrowserRouter>
-        <div className="App">
-          <Header
-            user={user}
-            setIsMenuOpen={setIsMenuOpen}
-            isMenuOpen={isMenuOpen}
-          />
-          <div className="page">
-            <Sidebar allCategories={allCategories} isMenuOpen={isMenuOpen} />
-            <Routes>
-              <Route path="/" element={<AllReviews user={user} />} />
-              <Route
-                path="/:category"
-                element={
-                  <CategoryView allCategories={allCategories} user={user} />
-                }
-              />
-              <Route
-                path="/:category/:review_id"
-                element={
-                  <SingleReview allCategories={allCategories} users={users} />
-                }
-              />
-            </Routes>
-          </div>
-        </div>
-      </BrowserRouter>
-    );
-
   return (
     <BrowserRouter>
       <div className="App">
-        <Header
-          user={user}
-          setIsMenuOpen={setIsMenuOpen}
-          isMenuOpen={isMenuOpen}
-        />
+        <Header user={user} />
         <div className="page">
+          <Sidebar allCategories={allCategories} />
           <Routes>
             <Route path="/" element={<AllReviews user={user} />} />
             <Route
