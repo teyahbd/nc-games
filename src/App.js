@@ -11,7 +11,7 @@ import CategoryView from "./components/CategoryView";
 import Loader from "./components/Loader";
 import Sidebar from "./components/Sidebar.jsx";
 import { UserContext } from "./contexts/UserContext";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./components/login/LandingPage";
 
 function App() {
   const [allCategories, setAllCategories] = useState([]);
@@ -30,7 +30,6 @@ function App() {
       })
       .then(({ data: { users } }) => {
         setUsers(users);
-        setUser(users[5]);
         setIsLoading(false);
       });
   }, []);
@@ -46,7 +45,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<LandingPage user={user} />} />
+          <Route
+            path="/"
+            element={<LandingPage users={users} setUser={setUser} />}
+          />
           <Route path="/home" element={<AllReviews user={user} />} />
           <Route
             path="/:category"
