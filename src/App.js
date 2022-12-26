@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "./api";
 import "./App.css";
@@ -49,20 +49,36 @@ function App() {
           />
           <Route
             path="/home"
-            element={<AllReviews user={user} allCategories={allCategories} />}
+            element={
+              user === null ? (
+                <Navigate to="/" />
+              ) : (
+                <AllReviews user={user} allCategories={allCategories} />
+              )
+            }
           />
           <Route
             path="/:category"
-            element={<CategoryView allCategories={allCategories} user={user} />}
+            element={
+              user === null ? (
+                <Navigate to="/" />
+              ) : (
+                <CategoryView allCategories={allCategories} user={user} />
+              )
+            }
           />
           <Route
             path="/:category/:review_id"
             element={
-              <SingleReview
-                allCategories={allCategories}
-                user={user}
-                users={users}
-              />
+              user === null ? (
+                <Navigate to="/" />
+              ) : (
+                <SingleReview
+                  allCategories={allCategories}
+                  user={user}
+                  users={users}
+                />
+              )
             }
           />
         </Routes>

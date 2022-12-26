@@ -9,6 +9,7 @@ const AllReviews = ({ user, allCategories }) => {
   const [allReviews, setAllReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  console.log(user);
   useEffect(() => {
     api.fetchReviews().then(({ data }) => {
       setAllReviews(data);
