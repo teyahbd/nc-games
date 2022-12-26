@@ -37,6 +37,8 @@ img {
 
 header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #8cf5ff;
   padding: 1.8rem;
 }
@@ -49,19 +51,10 @@ header {
   white-space: nowrap;
 }
 
-.box {
-  flex: 1;
+#heading {
   display: flex;
-  justify-content: center;
-}
-.box:first-child > span {
-  margin-right: auto;
-}
-.box:last-child > span {
-  margin-left: auto;
-}
-.box {
-  align-items: center;
+  flex-direction: column;
+  text-align: left;
 }
 
 #user-widget {
@@ -112,54 +105,32 @@ header {
   -webkit-transform: rotate(45deg);
 }
 
-/* CATEGORY DROPDOWN */
+/* SIDEBAR */
 
-#category-button {
-  background-color: inherit;
-  border: 0;
-  display: flex;
-  color: white;
-  cursor: pointer;
-  transition-duration: 0.3s;
-  font-size: 1.2rem;
-}
-
-#category-button:hover {
-  color: orange;
-}
-
-.down-arrow {
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
-#category-sidebar {
-  position: -webkit-sticky; /* Safari & IE */
+#sidebar {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.8rem;
+  text-align: left;
   height: fit-content;
   width: fit-content;
-  background-color: rgb(255, 243, 221);
-  font-size: 1.5rem;
+  background-color: rgb(255, 200, 98);
+  font-size: 1.4rem;
   line-height: 1.7;
-  border: 10px solid orange;
+  border-bottom-right-radius: 40px;
 }
 
-#category-sidebar > h2 {
-  color: orange;
+#sidebar > h2 {
   font-family: "Fugaz One", cursive;
+  color: white;
 }
 
 .category-link {
   text-decoration: none;
-  color: orange;
+  color: white;
   transition-duration: 0.3s;
 }
 
@@ -167,44 +138,26 @@ header {
   color: #ff69b4;
 }
 
-.hamburger-menu {
-  width: 35px;
-  height: 5px;
-  background-color: white;
-  margin: 6px 0;
-  transition-duration: 0.2s;
-}
-
-#mobile-nav-button {
-  padding: 1rem;
-}
-
 /* CATEGORY WIDGET */
 
 #category-widget {
-  background-color: rgb(255, 200, 98);
   display: flex;
   justify-content: center;
+  color: orange;
+  background-color: white;
 }
 
 #category-text-container {
   padding: 1.5rem;
 }
 
-#category-text-container > h2 {
-  color: #ffffff;
-  font-family: "Fugaz One", cursive;
-  font-size: 2rem;
-}
-
 #category-text-container > p {
-  color: #ffffff;
+  font-size: 1.2rem;
 }
 
-#category-is {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 200;
+#category-text-container > h2 {
+  font-family: "Fugaz One", cursive;
+  font-size: 3rem;
 }
 
 /* SINGLE REVIEW STYLING */

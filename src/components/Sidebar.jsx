@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const CategorySidebar = (allCategories, isMenuOpen) => {
+const Sidebar = (allCategories, isMenuOpen) => {
   console.log(allCategories);
   const checkCategories = [
     {
@@ -39,12 +39,13 @@ const CategorySidebar = (allCategories, isMenuOpen) => {
         "Games where players construct unique points-gaining engines main element of the gameplay",
     },
   ];
+
   if (isMenuOpen === false) {
     return <div></div>;
   }
   return (
     <>
-      <div id="category-sidebar" className="web-only">
+      <div id="sidebar" className="web-only">
         <h2>CATEGORIES</h2>
         <Link to={"/"} className="category-link">
           all reviews
@@ -63,4 +64,4 @@ const CategorySidebar = (allCategories, isMenuOpen) => {
   );
 };
 
-export default CategorySidebar;
+export default Sidebar;

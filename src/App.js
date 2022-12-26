@@ -9,7 +9,7 @@ import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
 import Loader from "./components/Loader";
-import CategorySidebar from "./components/CategorySidebar.jsx";
+import Sidebar from "./components/Sidebar.jsx";
 import { UserContext } from "./contexts/UserContext";
 
 function App() {
@@ -52,10 +52,7 @@ function App() {
             isMenuOpen={isMenuOpen}
           />
           <div className="page">
-            <CategorySidebar
-              allCategories={allCategories}
-              isMenuOpen={isMenuOpen}
-            />
+            <Sidebar allCategories={allCategories} isMenuOpen={isMenuOpen} />
             <Routes>
               <Route path="/" element={<AllReviews user={user} />} />
               <Route
