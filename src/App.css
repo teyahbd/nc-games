@@ -323,11 +323,10 @@ header {
 }
  */
 .back-button {
-  background-color: orange;
-  box-shadow: 12px 12px 2px 1px white;
+  background-color: transparent;
   padding: 0.8rem;
-  border: none;
-  color: white;
+  border: 1px solid orange;
+  color: orange;
   font-size: 1.2rem;
   cursor: pointer;
   transition-duration: 0.3s;
@@ -338,7 +337,8 @@ header {
 
 .back-button:hover,
 .back-button:focus {
-  color: #ff69b4;
+  background-color: orange;
+  color: white;
 }
 
 /* COMMENTS STYLING */

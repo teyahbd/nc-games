@@ -4,7 +4,7 @@ const ReviewCard = ({ review }) => {
   return (
     <div className="card">
       <div className="card-horizontal">
-        <img src={`${review.review_img_url}`} className="card-img" />
+        <img src={`${review.review_img_url}`} className="card-img" alt="" />
         <div className="card-content">
           {/* conditional link based on whether you came from home or not? */}
           <Link
