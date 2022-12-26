@@ -22,7 +22,7 @@ const Dropdown = ({ allCategories }) => {
         <button onClick={showNav}>CATEGORIES</button>
       </div>
       <div id="dropdown-nav">
-        <Link to={"/home"} className="dropdown-link">
+        <Link to={"/home"} className="dropdown-link" onClick={showNav}>
           all
         </Link>
         {allCategories.map((category) => {
@@ -31,6 +31,7 @@ const Dropdown = ({ allCategories }) => {
               key={`${category.slug}`}
               to={`/${category.slug}`}
               className="dropdown-link"
+              onClick={showNav}
             >{`${category.slug.replace(/-/g, " ")}`}</Link>
           );
         })}
