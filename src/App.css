@@ -156,6 +156,18 @@ header {
   border-radius: 10px;
   box-shadow: 10px 10px 2px 1px #ff69b4;
   margin-right: 1rem;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  color: #e60073;
+}
+
+#user-widget:hover {
+  box-shadow: 10px 10px 2px 1px orange;
+  color: orange;
+}
+
+#user-link {
+  text-decoration: none;
 }
 
 #user-avatar {
@@ -171,7 +183,6 @@ header {
   text-align: left;
   margin-right: 1rem;
   line-height: 1.5;
-  color: #e60073;
 }
 
 #user-widget-username {
