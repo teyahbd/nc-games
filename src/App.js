@@ -4,13 +4,12 @@ import * as api from "./api";
 import "./App.css";
 /* import "bootstrap/dist/css/bootstrap.min.css"; */
 
-import Header from "./components/header/Header";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import CategoryView from "./components/CategoryView";
 import Loader from "./components/Loader";
-import Sidebar from "./components/Sidebar.jsx";
 import { UserContext } from "./contexts/UserContext";
+import LandingPage from "./components/login/LandingPage";
 
 function App() {
   const [allCategories, setAllCategories] = useState([]);
@@ -29,7 +28,6 @@ function App() {
       })
       .then(({ data: { users } }) => {
         setUsers(users);
-        setUser(users[5]);
         setIsLoading(false);
       });
   }, []);
@@ -44,25 +42,30 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header user={user} />
-        <div className="page">
-          <Sidebar allCategories={allCategories} />
-          <Routes>
-            <Route path="/" element={<AllReviews user={user} />} />
-            <Route
-              path="/:category"
-              element={
-                <CategoryView allCategories={allCategories} user={user} />
-              }
-            />
-            <Route
-              path="/:category/:review_id"
-              element={
-                <SingleReview allCategories={allCategories} users={users} />
-              }
-            />
-          </Routes>
-        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={<LandingPage users={users} setUser={setUser} />}
+          />
+          <Route
+            path="/home"
+            element={<AllReviews user={user} allCategories={allCategories} />}
+          />
+          <Route
+            path="/:category"
+            element={<CategoryView allCategories={allCategories} user={user} />}
+          />
+          <Route
+            path="/:category/:review_id"
+            element={
+              <SingleReview
+                allCategories={allCategories}
+                user={user}
+                users={users}
+              />
+            }
+          />
+        </Routes>
       </div>
     </BrowserRouter>
   );

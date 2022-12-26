@@ -1,56 +1,18 @@
 import { Link } from "react-router-dom";
 
-const Sidebar = (allCategories) => {
-  const checkCategories = [
-    {
-      slug: "strategy",
-      description:
-        "Strategy-focused board games that prioritise limited-randomness",
-    },
-    {
-      slug: "hidden-roles",
-      description:
-        "One or more players around the table have a secret, and the rest of you need to figure out who! Players attempt to uncover each other's hidden role",
-    },
-    {
-      slug: "dexterity",
-      description:
-        "Games involving physical skill, something like Gladiators, for Board Games!",
-    },
-    {
-      slug: "push-your-luck",
-      description:
-        "Games that allow you to take bigger risks to achieve increasingly valuable rewards - or to decide to keep what you’ve got before you lose everything.",
-    },
-    {
-      slug: "roll-and-write",
-      description:
-        "Roll some dice and decide how to use the outcome, writing it into a personal scoring sheet. ",
-    },
-    {
-      slug: "deck-building",
-      description:
-        "Games where players construct their own deck as a main element of the gameplay",
-    },
-    {
-      slug: "engine-building",
-      description:
-        "Games where players construct unique points-gaining engines main element of the gameplay",
-    },
-  ];
-
+const Sidebar = ({ allCategories }) => {
   return (
     <>
       <div id="sidebar" className="web-only">
         <h2>CATEGORIES</h2>
-        <Link to={"/"} className="category-link">
+        <Link to={"/home"} className="category-link">
           all
         </Link>
-        {checkCategories.map((category) => {
+        {allCategories.map((category) => {
           return (
             <Link
               key={`${category.slug}`}
-              to={`${category.slug}`}
+              to={`/${category.slug}`}
               className="category-link"
             >{`${category.slug.replace(/-/g, " ")}`}</Link>
           );
