@@ -1,11 +1,13 @@
 import ReviewCard from "./ReviewCard";
 import CategoryWidget from "./CategoryWidget";
 import Loader from "./Loader";
+import Header from "./header/Header";
+import Sidebar from "./Sidebar.jsx";
 import { useEffect, useState } from "react";
 import * as api from "../api";
 import { useParams } from "react-router-dom";
 
-const CategoryView = ({ allCategories }) => {
+const CategoryView = ({ allCategories, user }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryReviews, setCategoryReviews] = useState([]);
   const { category } = useParams();
@@ -25,14 +27,20 @@ const CategoryView = ({ allCategories }) => {
     );
 
   return (
-    <div className="reviews">
-      <CategoryWidget
-        allCategories={allCategories}
-        currentCategory={category}
-      />
-      {categoryReviews.map((review) => {
-        return <ReviewCard key={review.review_id} review={review} />;
-      })}
+    <div className="page">
+      <Header user={user} />
+      <div className="main-page">
+        <Sidebar allCategories={allCategories} />
+        <div className="reviews">
+          <CategoryWidget
+            allCategories={allCategories}
+            currentCategory={category}
+          />
+          {categoryReviews.map((review) => {
+            return <ReviewCard key={review.review_id} review={review} />;
+          })}
+        </div>
+      </div>
     </div>
   );
 };

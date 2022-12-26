@@ -10,7 +10,7 @@ const Header = ({ user, setIsMenuOpen, isMenuOpen }) => {
   return (
     <header>
       <div id="heading">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/home" style={{ textDecoration: "none" }}>
           <h1 id="web-header" className="header-title">
             Board Game Reviews
           </h1>
