@@ -265,41 +265,32 @@ header {
 
 /* SINGLE REVIEW STYLING */
 
-.reviews {
-  width: 100%;
-}
-
 .review-page {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 3rem;
+  padding: 3vw;
 }
 
 .review-box {
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 2rem;
+  padding: 3vw;
   box-shadow: 10px 10px 2px 1px #8cf5ff;
+  border: 1px solid #8cf5ff;
 }
 
 .review-container {
   display: flex;
-  padding: 1rem;
+  padding: 1vw;
   text-align: left;
-}
-
-.review-container > p {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  padding: 1rem;
 }
 
 .review-header > h2 {
   color: orange;
   font-family: "Fugaz One", cursive;
-  font-size: 2.5rem;
+  font-size: 3vw;
   text-align: right;
 }
 
@@ -307,7 +298,13 @@ header {
   color: #ff69b4;
   font-style: italic;
   text-align: right;
-  padding: 0.5rem;
+  font-size: 1.7vw;
+}
+
+.review-container > p {
+  font-size: 1.5vw;
+  line-height: 1.5;
+  padding: 1vw;
 }
 
 .review-header {
@@ -317,10 +314,10 @@ header {
 }
 
 .review-container > img {
-  width: 20rem;
-  height: 20rem;
+  width: 20vw;
+  height: 20vw;
   object-fit: cover;
-  padding: 1rem;
+  padding: 1vw;
 }
 /* 
 .review-container > img:hover {
@@ -329,15 +326,14 @@ header {
  */
 .back-button {
   background-color: transparent;
-  padding: 0.8rem;
+  padding: 1vw;
   border: 1px solid orange;
   color: orange;
-  font-size: 1.2rem;
+  font-size: 1.5vw;
   cursor: pointer;
   transition-duration: 0.3s;
   white-space: nowrap;
   width: fit-content;
-  margin-right: 3rem;
 }
 
 .back-button:hover,
@@ -566,21 +562,6 @@ header {
   #sidebar {
     display: none;
   }
-  .review-header {
-    flex-direction: column;
-    align-items: center;
-  }
-  .review-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .review-box > h3 {
-    text-align: center;
-  }
-  .back-button {
-    margin: 1rem;
-    padding: 0.5rem;
-  }
   .mobile-only {
     display: inline;
   }
@@ -664,20 +645,58 @@ header {
     height: 20vw;
     width: 20vw;
   }
-
   .card-content {
     padding-left: 5vw;
   }
-
   .card-title {
     font-size: 4vw;
   }
-
   .card-author {
     font-size: 3vw;
   }
-
   .card-footer {
     font-size: 3vw;
+  }
+
+  .review-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .review-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .review-box > h3 {
+    text-align: center;
+    font-size: 5vw;
+  }
+  .review-page {
+    padding: 6vw;
+  }
+  .review-box {
+    padding: 6vw;
+  }
+
+  .review-header > h2 {
+    text-align: center;
+    font-size: 8vw;
+    line-height: 1.2;
+    padding-bottom: 2vw;
+  }
+
+  .review-container > p {
+    text-align: left;
+    font-size: 4vw;
+  }
+  .review-container > img {
+    width: 60vw;
+    height: 60vw;
+    object-fit: cover;
+    padding: 3vw;
+  }
+  .back-button {
+    padding: 1.2vw;
+    font-size: 3vw;
+    margin: 5vw;
   }
 }
