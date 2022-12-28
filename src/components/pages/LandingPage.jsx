@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-
-import UserButton from "./UserButton";
+import UserButton from "../UserButton";
 
 const LandingPage = ({ users, setUser }) => {
   return (

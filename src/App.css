@@ -29,6 +29,7 @@ html {
 
 .main-page {
   display: flex;
+  width: 100%;
 }
 
 /* LANDING PAGE */
@@ -241,6 +242,49 @@ header {
   color: #ff69b4;
 }
 
+/* SORTERS */
+
+#sorter-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sorters {
+  background-color: transparent;
+  font-size: 1.5vw;
+  margin-left: 1vw;
+  border: 2px solid white;
+  transition-duration: 0.3s;
+  background-color: #ff69b4;
+  color: white;
+}
+
+.sorters:hover,
+.sorters:active,
+.sorters:focus {
+  border: 2px solid orange;
+}
+
+.sorter-label {
+  color: white;
+  font-size: 1.5vw;
+  font-style: italic;
+  background-color: #ff69b4;
+}
+
+.sorter-container {
+  display: flex;
+  align-items: center;
+  background-color: #ff69b4;
+  padding: 1vw;
+  border-radius: 1vw;
+}
+
+.sorter-option {
+  color: white;
+  font-size: 1.5vw;
+}
+
 /* CATEGORY WIDGET */
 
 #category-widget {
@@ -407,6 +451,10 @@ header {
 
 /* REVIEW CARD STYLING */
 
+#category-container {
+  width: 100%;
+}
+
 .cards-list {
   padding: 3vw;
 }
@@ -474,15 +522,17 @@ header {
 .loader-box {
   display: flex;
   justify-content: center;
-  margin: 3rem;
+  width: 100%;
+  height: 100%;
+  margin: 5vw;
 }
 
 .loader {
   border: 16px solid #8cf5ff6c;
   border-top: 16px solid #ff69b4;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+  width: 5vw;
+  height: 5vw;
   animation: spin 2s linear infinite;
 }
 
@@ -738,5 +788,17 @@ header {
   }
   .op-comment {
     box-shadow: 10px 10px 2px 1px #ff69b4a1;
+  }
+  .sorters {
+    font-size: 4vw;
+    margin-left: 2vw;
+    border: 2px solid white;
+  }
+
+  .sorter-label {
+    font-size: 4vw;
+  }
+  .sorter-option {
+    font-size: 4vw;
   }
 }
