@@ -366,6 +366,7 @@ header {
   padding: 1.5vw;
   margin: 1vw;
   box-shadow: 12px 12px 2px 1px #8cf5ff97;
+  border: 0.5px solid #8cf5ff;
 }
 
 .comment-text {
@@ -385,6 +386,7 @@ header {
 }
 
 .op-comment {
+  border: 0.5px solid #ff69b4;
   box-shadow: 12px 12px 2px 1px #ff69b4a1;
 }
 
@@ -703,5 +705,38 @@ header {
     padding: 1.2vw;
     font-size: 3vw;
     margin: 5vw;
+  }
+  .comment-container {
+    padding-top: 10vw;
+  }
+
+  .comment-card {
+    border-radius: 2vw;
+    background-color: white;
+    width: 80vw;
+    padding: 2.5vw;
+    margin: 2vw;
+    box-shadow: 10px 10px 2px 1px #8cf5ff97;
+  }
+
+  .comment-text {
+    margin-left: 5vw;
+    font-size: 4vw;
+  }
+
+  .commentor-avatar {
+    height: 12vw;
+    width: 12vw;
+  }
+
+  .comments-header {
+    font-size: 9vw;
+  }
+
+  #no-comments-text {
+    font-size: 5vw;
+  }
+  .op-comment {
+    box-shadow: 10px 10px 2px 1px #ff69b4a1;
   }
 }
