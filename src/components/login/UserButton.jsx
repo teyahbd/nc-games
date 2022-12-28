@@ -12,8 +12,10 @@ const UserButton = ({ user, setUser }) => {
       className="landing-user-widget"
     >
       <img src={`${user.avatar_url}`} alt="user avatar"></img>
-      <h2>{`${user.name.split(" ")[0].toUpperCase()}`}</h2>
-      <h3>{`${user.username}`}</h3>
+      <div className="landing-user-info">
+        <h2>{`${user.name.split(" ")[0].toUpperCase()}`}</h2>
+        <h3>{`${user.username}`}</h3>
+      </div>
     </Link>
   );
 };
