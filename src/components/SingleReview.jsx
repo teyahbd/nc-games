@@ -53,7 +53,7 @@ const SingleReview = ({ allCategories, user, users }) => {
       <div className="page">
         <Header user={user} />
         <div className="main-page">
-          <Dropdown allCategories={allCategories} />
+          <Dropdown allCategories={allCategories} currentCategory={category} />
           <main className="review-page">
             <div className="review-box">
               <div className="review-header">

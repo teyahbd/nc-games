@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const Dropdown = ({ allCategories }) => {
+const Dropdown = ({ allCategories, currentCategory }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function showNav() {
@@ -13,6 +13,9 @@ const Dropdown = ({ allCategories }) => {
       <div id="dropdown-container">
         <div id="dropdown-button">
           <button onClick={showNav}>CATEGORIES</button>
+          <h3 id="current-category">
+            {`${currentCategory.replace(/-/g, " ")}`}
+          </h3>
         </div>
       </div>
     );
@@ -20,6 +23,7 @@ const Dropdown = ({ allCategories }) => {
     <div id="dropdown-container">
       <div id="dropdown-button">
         <button onClick={showNav}>CATEGORIES</button>
+        <h3 id="current-category">{`${currentCategory.replace(/-/g, " ")}`}</h3>
       </div>
       <div id="dropdown-nav">
         <Link to={"/home"} className="dropdown-link" onClick={showNav}>

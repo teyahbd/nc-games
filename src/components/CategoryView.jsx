@@ -1,5 +1,5 @@
 import ReviewCard from "./ReviewCard";
-import CategoryWidget from "./CategoryWidget";
+import CategoryWidget from "./nav/CategoryWidget";
 import Loader from "./Loader";
 import Header from "./header/Header";
 import Sidebar from "./nav/Sidebar.jsx";
@@ -48,14 +48,15 @@ const CategoryView = ({ allCategories, user }) => {
         <Header user={user} />
         <div className="main-page">
           <div className="reviews">
-            <CategoryWidget
+            <Dropdown
               allCategories={allCategories}
               currentCategory={category}
             />
-            <Dropdown allCategories={allCategories} />
-            {categoryReviews.map((review) => {
-              return <ReviewCard key={review.review_id} review={review} />;
-            })}
+            <div className="cards-list">
+              {categoryReviews.map((review) => {
+                return <ReviewCard key={review.review_id} review={review} />;
+              })}
+            </div>
           </div>
         </div>
       </div>
@@ -71,9 +72,11 @@ const CategoryView = ({ allCategories, user }) => {
             allCategories={allCategories}
             currentCategory={category}
           />
-          {categoryReviews.map((review) => {
-            return <ReviewCard key={review.review_id} review={review} />;
-          })}
+          <div className="cards-list">
+            {categoryReviews.map((review) => {
+              return <ReviewCard key={review.review_id} review={review} />;
+            })}
+          </div>
         </div>
       </div>
     </div>

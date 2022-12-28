@@ -45,8 +45,11 @@ const AllReviews = ({ user, allCategories }) => {
       <div className="page">
         <Header user={user} />
         <div className="main-page">
-          <Dropdown allCategories={allCategories} />
-          <div id="cards-list">
+          <Dropdown
+            allCategories={allCategories}
+            currentCategory="all reviews"
+          />
+          <div className="cards-list">
             {allReviews.map((review) => {
               return <ReviewCard key={review.review_id} review={review} />;
             })}
@@ -60,7 +63,7 @@ const AllReviews = ({ user, allCategories }) => {
       <Header user={user} />
       <div className="main-page">
         <Sidebar allCategories={allCategories} />
-        <div id="cards-list">
+        <div className="cards-list">
           {allReviews.map((review) => {
             return <ReviewCard key={review.review_id} review={review} />;
           })}
