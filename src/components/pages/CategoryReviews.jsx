@@ -30,7 +30,7 @@ const CategoryReviews = ({ category, allCategories }) => {
     );
 
   return (
-    <div>
+    <div id="category-container">
       <CategoryWidget
         currentCategory={category}
         allCategories={allCategories}

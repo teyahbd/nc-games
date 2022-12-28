@@ -15,25 +15,43 @@ const Sorters = ({
   };
 
   return (
-    <div id="sorters">
-      <select
-        onChange={handleSortByChange}
-        value={selectedSortBy}
-        name="sort-by"
-        id="sort-by-sorter"
-      >
-        <option value="created_at">Date</option>
-        <option value="votes">Votes</option>
-      </select>
-      <select
-        onChange={handleOrderChange}
-        value={selectedOrder}
-        name="ascending-or-descending"
-        id="asc-desc-sorter"
-      >
-        <option value="asc">ASC</option>
-        <option value="desc">DESC</option>
-      </select>
+    <div id="sorter-container">
+      <div className="sorter-container">
+        <label for="sort-by" className="sorter-label">
+          SORT BY
+        </label>
+        <select
+          onChange={handleSortByChange}
+          value={selectedSortBy}
+          name="sort-by"
+          className="sorters"
+        >
+          <option value="created_at" className="sorter-option">
+            Date
+          </option>
+          <option value="votes" className="sorter-option">
+            Votes
+          </option>
+        </select>
+      </div>
+      <div className="sorter-container">
+        <label for="ascending-or-descending" className="sorter-label">
+          ORDER
+        </label>
+        <select
+          onChange={handleOrderChange}
+          value={selectedOrder}
+          name="ascending-or-descending"
+          className="sorters"
+        >
+          <option value="asc" className="sorter-option">
+            ASC
+          </option>
+          <option value="desc" className="sorter-option">
+            DESC
+          </option>
+        </select>
+      </div>
     </div>
   );
 };
