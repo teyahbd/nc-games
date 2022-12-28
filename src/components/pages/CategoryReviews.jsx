@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import ReviewCard from "../ReviewCard";
 import CategoryWidget from "../CategoryWidget";
@@ -12,12 +13,14 @@ const CategoryReviews = ({ category, allCategories }) => {
   const [categoryReviews, setCategoryReviews] = useState([]);
   const [selectedSortBy, setSelectedSortBy] = useState("created_at");
   const [selectedOrder, setSelectedOrder] = useState("desc");
+  const [searchParams, setSearchParams] = useSearchParams({});
 
   useEffect(() => {
     api
       .fetchSortedReviewsByCategory(category, selectedSortBy, selectedOrder)
       .then(({ data }) => {
         setCategoryReviews(data);
+        setSearchParams({ sort_by: selectedSortBy, order: selectedOrder });
         setIsLoading(false);
       });
   }, [category, selectedSortBy, selectedOrder]);
