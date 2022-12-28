@@ -144,7 +144,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #8cf5ff;
-  padding: 2vw;
+  padding: 3vw;
 }
 
 .header-title {
@@ -601,9 +601,6 @@ header {
     margin: 0.5rem;
     border-radius: none;
   }
-  header {
-    padding: 1.5rem;
-  }
   .main-page {
     flex-direction: column;
   }
@@ -649,5 +646,27 @@ header {
   .landing-user-widget > img {
     width: 12vh;
     height: 12vh;
+  }
+  #user-widget {
+    width: fit-content;
+    height: fit-content;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+  }
+  #user-widget:hover {
+    box-shadow: none;
+  }
+  #user-avatar {
+    height: 15vw;
+    width: 15vw;
+    background-color: white;
+  }
+  #user-avatar:hover {
+    border: 2px solid #ff69b4;
+  }
+  #mobile-header {
+    font-size: 12vw;
+    text-shadow: 4px 4px #ff69b4;
   }
 }
