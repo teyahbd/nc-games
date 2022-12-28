@@ -25,4 +25,14 @@ export const fetchCommentsByReviewId = (review_id) => {
 export const fetchUsers = () => {
   return api.get("/api/users");
 };
+
+export const fetchSortedReviews = (sortBy, order) => {
+  return api.get(`/api/reviews?sort_by=${sortBy}&order=${order}`);
+};
+
+export const fetchSortedReviewsByCategory = (category, sortBy, order) => {
+  return api.get(
+    `/api/reviews?category=${category}?sort_by=${sortBy}&order=${order}`
+  );
+};
 //add catch?

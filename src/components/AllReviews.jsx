@@ -1,23 +1,11 @@
-import { useState, useEffect, useParams } from "react";
-import * as api from "../api";
-import ReviewCard from "./ReviewCard";
-import Loader from "./Loader";
+import { useState, useEffect } from "react";
 import Header from "./header/Header";
 import Sidebar from "./nav/Sidebar.jsx";
 import Dropdown from "./nav/Dropdown";
+import ReviewList from "./ReviewList";
 
 const AllReviews = ({ user, allCategories }) => {
-  const [allReviews, setAllReviews] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  console.log(user);
-  useEffect(() => {
-    api.fetchReviews().then(({ data }) => {
-      setAllReviews(data);
-      setIsLoading(false);
-    });
-  }, []);
-
+  /// refactor so this frame can be used for all reviews and all categories
   // make this a custom hook
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -33,13 +21,6 @@ const AllReviews = ({ user, allCategories }) => {
 
   const isMobile = width <= 1000;
 
-  if (isLoading)
-    return (
-      <div className="loader-box">
-        <Loader />
-      </div>
-    );
-
   if (isMobile)
     return (
       <div className="page">
@@ -49,11 +30,7 @@ const AllReviews = ({ user, allCategories }) => {
             allCategories={allCategories}
             currentCategory="all reviews"
           />
-          <div className="cards-list">
-            {allReviews.map((review) => {
-              return <ReviewCard key={review.review_id} review={review} />;
-            })}
-          </div>
+          <ReviewList />
         </div>
       </div>
     );
@@ -63,11 +40,7 @@ const AllReviews = ({ user, allCategories }) => {
       <Header user={user} />
       <div className="main-page">
         <Sidebar allCategories={allCategories} />
-        <div className="cards-list">
-          {allReviews.map((review) => {
-            return <ReviewCard key={review.review_id} review={review} />;
-          })}
-        </div>
+        <ReviewList />
       </div>
     </div>
   );
