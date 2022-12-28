@@ -2,14 +2,12 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "./api";
 import "./App.css";
-/* import "bootstrap/dist/css/bootstrap.min.css"; */
 
-import AllReviews from "./components/AllReviews";
-import SingleReview from "./components/SingleReview";
-import CategoryView from "./components/CategoryView";
+import SingleReview from "./components/pages/SingleReview";
 import Loader from "./components/Loader";
 import { UserContext } from "./contexts/UserContext";
-import LandingPage from "./components/login/LandingPage";
+import LandingPage from "./components/pages/LandingPage";
+import MainPage from "./components/MainPage";
 
 function App() {
   const [allCategories, setAllCategories] = useState([]);
@@ -53,7 +51,12 @@ function App() {
               user === null ? (
                 <Navigate to="/" />
               ) : (
-                <AllReviews user={user} allCategories={allCategories} />
+                <MainPage
+                  user={user}
+                  users={users}
+                  allCategories={allCategories}
+                  type="home"
+                />
               )
             }
           />
@@ -63,7 +66,12 @@ function App() {
               user === null ? (
                 <Navigate to="/" />
               ) : (
-                <CategoryView allCategories={allCategories} user={user} />
+                <MainPage
+                  allCategories={allCategories}
+                  user={user}
+                  users={users}
+                  type="category"
+                />
               )
             }
           />
@@ -73,10 +81,11 @@ function App() {
               user === null ? (
                 <Navigate to="/" />
               ) : (
-                <SingleReview
+                <MainPage
                   allCategories={allCategories}
                   user={user}
                   users={users}
+                  type="single-review"
                 />
               )
             }

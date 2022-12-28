@@ -1,20 +1,20 @@
-import Sorters from "./Sorters";
-import ReviewCard from "./ReviewCard";
-import Loader from "./Loader";
+import Sorters from "../Sorters";
+import ReviewCard from "../ReviewCard";
+import Loader from "../Loader";
 
-import * as api from "../api";
+import * as api from "../../api";
 
 import { useState, useEffect } from "react";
 
-const ReviewList = () => {
-  const [allReviews, setAllReviews] = useState([]);
+const AllReviews = () => {
+  const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSortBy, setSelectedSortBy] = useState("created_at");
   const [selectedOrder, setSelectedOrder] = useState("desc");
 
   useEffect(() => {
     api.fetchSortedReviews(selectedSortBy, selectedOrder).then(({ data }) => {
-      setAllReviews(data);
+      setReviews(data);
       setIsLoading(false);
     });
   }, [selectedSortBy, selectedOrder]);
@@ -35,7 +35,7 @@ const ReviewList = () => {
           selectedOrder={selectedOrder}
           setSelectedOrder={setSelectedOrder}
         />
-        {allReviews.map((review) => {
+        {reviews.map((review) => {
           return <ReviewCard key={review.review_id} review={review} />;
         })}
       </div>
@@ -43,4 +43,4 @@ const ReviewList = () => {
   );
 };
 
-export default ReviewList;
+export default AllReviews;

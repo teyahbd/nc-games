@@ -32,7 +32,7 @@ export const fetchSortedReviews = (sortBy, order) => {
 
 export const fetchSortedReviewsByCategory = (category, sortBy, order) => {
   return api.get(
-    `/api/reviews?category=${category}?sort_by=${sortBy}&order=${order}`
+    `/api/reviews?category=${category}&sort_by=${sortBy}&order=${order}`
   );
 };
 //add catch?
