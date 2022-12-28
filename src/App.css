@@ -272,6 +272,10 @@ header {
   padding: 3vw;
 }
 
+.reviews {
+  width: 100%;
+}
+
 .review-box {
   display: flex;
   flex-direction: column;
@@ -349,29 +353,29 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: 2rem;
+  padding-top: 5vw;
 }
 
 .comment-card {
   display: flex;
   text-align: left;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 1vw;
   background-color: white;
-  width: 80%;
-  padding: 1.2rem;
-  margin: 0.8rem;
+  width: 60vw;
+  padding: 1.5vw;
+  margin: 1vw;
   box-shadow: 12px 12px 2px 1px #8cf5ff97;
 }
 
 .comment-text {
-  margin-left: 1rem;
+  margin-left: 2vw;
+  font-size: 1.5vw;
 }
 
 .commentor-avatar {
-  margin: 0;
-  height: 2rem;
-  width: 2rem;
+  height: 4vw;
+  width: 4vw;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -385,7 +389,7 @@ header {
 }
 
 .comments-header {
-  font-size: 3rem;
+  font-size: 4vw;
   font-weight: 200;
   font-family: "Fugaz One", cursive;
   color: #ff69b4;
@@ -393,7 +397,8 @@ header {
 
 #no-comments-text {
   color: #ff69b4;
-  font-size: 2rem;
+  font-size: 2vw;
+  padding: 2vw;
   font-weight: 300;
   font-style: italic;
 }
