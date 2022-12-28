@@ -501,6 +501,7 @@ header {
 }
 
 #current-category {
+  font-size: 5vw;
   color: white;
   font-weight: 300;
 }
@@ -650,5 +651,33 @@ header {
   #mobile-header {
     font-size: 12vw;
     text-shadow: 4px 4px #ff69b4;
+  }
+  .cards-list {
+    padding: 5vw;
+  }
+  .card {
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+  }
+
+  .card-img {
+    height: 20vw;
+    width: 20vw;
+  }
+
+  .card-content {
+    padding-left: 5vw;
+  }
+
+  .card-title {
+    font-size: 4vw;
+  }
+
+  .card-author {
+    font-size: 3vw;
+  }
+
+  .card-footer {
+    font-size: 3vw;
   }
 }
