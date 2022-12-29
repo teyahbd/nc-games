@@ -32,6 +32,7 @@ const MainPage = ({ user, allCategories, type, users }) => {
               review_id={review_id}
               category={category}
               users={users}
+              user={user}
             />
           ) : type === "category" ? (
             <CategoryReviews

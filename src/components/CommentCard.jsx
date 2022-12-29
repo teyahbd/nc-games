@@ -1,4 +1,5 @@
-const CommentCard = ({ review_id, review_author, comment, users }) => {
+const CommentCard = ({ review_author, comment, users }) => {
+  console.log(comment);
   // could do op styling
   const commentor = users.filter((user) => {
     return user.username === comment.author;

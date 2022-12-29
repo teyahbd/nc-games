@@ -2,8 +2,9 @@ import CommentCard from "./CommentCard";
 import Loader from "./Loader";
 import { useState, useEffect } from "react";
 import * as api from "../api";
+import CommentForm from "./CommentForm";
 
-const CommentContainer = ({ review_id, review_author, users }) => {
+const CommentContainer = ({ review_id, review_author, users, user }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
 
@@ -24,6 +25,12 @@ const CommentContainer = ({ review_id, review_author, users }) => {
   return (
     <div className="comment-container">
       <h2 className="comments-header">What do you think?</h2>
+      <CommentForm
+        review_id={review_id}
+        username={user.username}
+        users={users}
+        review_author={review_author}
+      />
       {comments.length === 0 ? (
         <h2 id="no-comments-text">No comments yet... Why not be the first?</h2>
       ) : (

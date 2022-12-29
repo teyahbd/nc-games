@@ -35,4 +35,11 @@ export const fetchSortedReviewsByCategory = (category, sortBy, order) => {
     `/api/reviews?category=${category}&sort_by=${sortBy}&order=${order}`
   );
 };
+
+export const addCommentByReviewId = (review_id, username, body) => {
+  return api.post(`/api/reviews/${review_id}/comments`, {
+    username: username,
+    body: body,
+  });
+};
 //add catch?

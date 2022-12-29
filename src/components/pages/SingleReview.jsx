@@ -6,7 +6,7 @@ import Loader from "../Loader";
 
 import * as api from "../../api";
 
-const SingleReview = ({ users, category, review_id }) => {
+const SingleReview = ({ users, category, review_id, user }) => {
   const [review, setReview] = useState({});
 
   const [isLoading, setIsLoading] = useState(true);
@@ -52,6 +52,7 @@ const SingleReview = ({ users, category, review_id }) => {
         review_id={review.review_id}
         review_author={review.owner}
         users={users}
+        user={user}
       />
     </main>
   );
