@@ -6,7 +6,7 @@ This project is currently a work in progress! After testing a React Bootstrap fr
 
 ## Quick Links
 
-- [Hosted React Website](nc-board-game-reviews.netlify.app/)
+- [Hosted React Website](https://nc-board-game-reviews.netlify.app/)
 - [Hosted API](https://nc-games-reviews.onrender.com/)
 - [Backend Repo](https://github.com/teyahbd/nc-games-reviews-api)
 
