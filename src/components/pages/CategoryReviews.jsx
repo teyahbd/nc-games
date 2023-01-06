@@ -8,7 +8,7 @@ import Sorters from "../Sorters";
 
 import * as api from "../../api";
 
-const CategoryReviews = ({ category, allCategories }) => {
+const CategoryReviews = ({ category, allCategories, isMobile }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryReviews, setCategoryReviews] = useState([]);
   const [selectedSortBy, setSelectedSortBy] = useState("created_at");
@@ -29,6 +29,23 @@ const CategoryReviews = ({ category, allCategories }) => {
     return (
       <div className="loader-box">
         <Loader />
+      </div>
+    );
+
+  if (isMobile)
+    return (
+      <div id="category-container">
+        <div className="cards-list">
+          <Sorters
+            selectedSortBy={selectedSortBy}
+            setSelectedSortBy={setSelectedSortBy}
+            selectedOrder={selectedOrder}
+            setSelectedOrder={setSelectedOrder}
+          />
+          {categoryReviews.map((review) => {
+            return <ReviewCard key={review.review_id} review={review} />;
+          })}
+        </div>
       </div>
     );
 

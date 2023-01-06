@@ -21,7 +21,7 @@ const MainPage = ({ user, allCategories, type, users }) => {
         {isMobile ? (
           <Dropdown
             allCategories={allCategories}
-            currentCategory="all reviews"
+            currentCategory={category === undefined ? "all reviews" : category}
           />
         ) : (
           <Sidebar allCategories={allCategories} />
@@ -37,6 +37,7 @@ const MainPage = ({ user, allCategories, type, users }) => {
             <CategoryReviews
               category={category}
               allCategories={allCategories}
+              isMobile={isMobile}
             />
           ) : (
             <AllReviews />

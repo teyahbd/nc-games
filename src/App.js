@@ -2,8 +2,6 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "./api";
 import "./App.css";
-
-import SingleReview from "./components/pages/SingleReview";
 import Loader from "./components/Loader";
 import { UserContext } from "./contexts/UserContext";
 import LandingPage from "./components/pages/LandingPage";
