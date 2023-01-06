@@ -32,7 +32,7 @@ function App() {
 
   if (isLoading)
     return (
-      <div className="loader-box">
+      <div className="app-loader-box">
         <Loader />
       </div>
     );
